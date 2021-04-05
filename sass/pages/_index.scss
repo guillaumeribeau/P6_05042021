@@ -1,0 +1,92 @@
+header {
+    display:flex ;
+    justify-content: space-between;
+    align-items: center;
+
+h1{
+
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 46,87px;
+    color: $primarycolor;
+}
+
+}
+
+.header__nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    
+
+    li{
+        width: 92px;
+        height: 22px;
+        border: 0.5px solid #C4C4C4;
+        box-sizing: border-box;
+        margin:5px;
+        border-radius: 11px;
+        padding-right: 0px;
+        text-align: center;
+        color: $primarycolor;
+        font-size: 12px;
+        font-weight: 500;
+        }
+    #portrait{
+        width: 68px;
+    }
+    #art{
+        width: 41px;
+    }
+    #fashion{
+        width: 68px;
+    }
+    #architecture{
+        width: 92px;
+    }
+    #travel{
+        width: 58px;
+    }
+    #sport{
+        width: 55px;
+    }
+    #animals{
+        width: 65px;
+       }
+    #events{
+        width: 63px;
+    }
+   
+}
+
+.logo{
+        width: 200px;
+        height:50px;
+        margin-left: 100px;
+
+    }
+
+main {
+    display: grid;
+    grid-template-columns:repeat(3,3fr)
+}
+
+.photographer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.photographer img {
+height: 200px;
+width: 200px;
+box-shadow: 0px 4px 12px 0px #C4C4C4;
+
+;
+
+
+border-radius: 0px;
+
+
+    border-radius: 50%;
+}

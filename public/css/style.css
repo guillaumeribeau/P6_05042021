@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header h1 {
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 46, 87px;
+  color: #901C1C;
+}
+
+.header__nav ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+.header__nav ul li {
+  width: 92px;
+  height: 22px;
+  border: 0.5px solid #C4C4C4;
+  box-sizing: border-box;
+  margin: 5px;
+  border-radius: 11px;
+  padding-right: 0px;
+  text-align: center;
+  color: #901C1C;
+  font-size: 12px;
+  font-weight: 500;
+}
+.header__nav ul #portrait {
+  width: 68px;
+}
+.header__nav ul #art {
+  width: 41px;
+}
+.header__nav ul #fashion {
+  width: 68px;
+}
+.header__nav ul #architecture {
+  width: 92px;
+}
+.header__nav ul #travel {
+  width: 58px;
+}
+.header__nav ul #sport {
+  width: 55px;
+}
+.header__nav ul #animals {
+  width: 65px;
+}
+.header__nav ul #events {
+  width: 63px;
+}
+
+.logo {
+  width: 200px;
+  height: 50px;
+  margin-left: 100px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 3fr);
+}
+
+.photographer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photographer img {
+  height: 200px;
+  width: 200px;
+  box-shadow: 0px 4px 12px 0px #C4C4C4;
+  border-radius: 0px;
+  border-radius: 50%;
+}
+
+/*# sourceMappingURL=style.css.map */

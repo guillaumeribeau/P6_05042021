@@ -1,0 +1,16 @@
+
+$primarycolor :#901C1C;
+$secondarycolor:#DB8876;
+$secondarywrite: #FAFAFA;
+$secondaryblack:#525252;
+
+
+
+
+@import "utils/variables";
+@import "utils/mixins";
+@import "utils/extensions";
+@import "base/base";
+@import "components/buttons";
+@import "pages/index";
+@import "pages/photographe";

@@ -1,0 +1,19 @@
+{
+  "name": "p6_02042021",
+  "version": "1.0.0",
+  "description": "site pour photographe freelance",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./public/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guillaumeribeau/P6_02042021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guillaumeribeau/P6_02042021/issues"
+  },
+  "homepage": "https://github.com/guillaumeribeau/P6_02042021#readme"
+}
