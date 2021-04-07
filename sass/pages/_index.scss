@@ -66,9 +66,9 @@ h1{
 
     }
 
-main {
+.main {
     display: grid;
-    grid-template-columns:repeat(3,3fr)
+    grid-template-columns:repeat(3,4fr)
 }
 
 .photographer{
@@ -77,7 +77,7 @@ main {
     align-items: center;
 
 }
-.photographer img {
+.card__image{
 height: 200px;
 width: 200px;
 box-shadow: 0px 4px 12px 0px #C4C4C4;
