@@ -13,8 +13,11 @@ function createPhotographers(photographers) {
 const main = document.querySelector('.main');
 const photographerCard = photographers.map(photographers=>{
     const tags = photographers.tags;
+    const tagsArray = tags.map(items=> '#' + items
+).join('');
+  
     
-    return`<article class= card photographers>
+ return`<article class= card__photographers>
   <a id= '${photographers.id}' class= card__link href="" aria-label='${photographers.name}'> 
       <img class='card__image' src="img/portrait/${photographers.portrait}" alt="">
       <h2 class='card__name'>${photographers.name}</h2>
@@ -22,15 +25,18 @@ const photographerCard = photographers.map(photographers=>{
    
    <h3 id='card__location'>${photographers.city},${photographers.country}</h3>
    <h4 id='card__description'>${photographers.tagline}</h4>
-    <p class=card_price>${photographers.price}&euro;/jour</p>
-    <div class="card__tags-container">${tags}</div>
+    <p class=card__price>${photographers.price}&euro;/jour</p>
+    <ul>
+    <div class="card__tags">${tagsArray}</div>
 
  </article>`
 });
 
- main.innerHTML= photographerCard;
-
+ main.innerHTML= photographerCard.join('');
+ 
 };
+
+
 
 function createHomePage(){
         
