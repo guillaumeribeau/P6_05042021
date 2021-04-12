@@ -26,7 +26,7 @@ return`<article class= card__photographers>
    <h3 id='card__location'>${photographers.city},${photographers.country}</h3>
    <h4 id='card__description'>${photographers.tagline}</h4>
     <p class=card__price>${photographers.price}&euro;/jour</p>
-    <div class="tags">${tagsArray}</div>
+    <div class="tags__photographer">${tagsArray}</div>
     
 </article>`
 })
@@ -47,16 +47,52 @@ function createHomePage(){
         const photographers = data.photographers;
         createPhotographers(photographers);
      
+filterTags(photographers);
 })};
 createHomePage();
 
 
+// function qui filtre les tags
+
+function filterTags (photographers){
+
+  const tagsLink= document.querySelectorAll('.tags'); 
+  console.log(tagsLink);
+  for (let i =0; i< tagsLink.length; i++){
+      tagsLink[i].addEventListener('click', function(event){
+        event.preventDefault(); 
+    photographers.map(photographers => {
+    const tags = photographers.tags;
+      const ArrayOfTags = tags.map(element => element);
+     console.log(ArrayOfTags);
+ 
+      const navLink = tagsLink[i].innerText.slice(1).toLowerCase();
+       
+      if (ArrayOfTags.includes(navLink)){
+         const displaycard= document.getElementsByClassName('card__photographers')
+         displaycard.style.display='none'
+        }
+        else {
+          return '';
+        }
+       });  
+     });
+
+  }
+
+};
 
 
-// const tags = photographers.tags;
-//  const ArrayOfTags = tags.map(element => element);
-//  for (let valeur of ArrayOfTags){
-//      const li=document.createElement('li');
-//      const ul =document.getElementById('test');
-// ul.appendChild(li)
-// li.innerHTML=`#${valeur}`
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
