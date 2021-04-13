@@ -11,9 +11,9 @@ const getData = () => fetch('../data.json')
 
 function createPhotographers(photographers) {
 const main = document.querySelector('.main');
-const photographerCard = photographers.map(photographers=>{
-  const tags = photographers.tags;
-    const tagsArray = tags.map(tags => {
+let photographerCard = photographers.map(photographers=>{
+  let tags = photographers.tags;
+    let tagsArray = tags.map(tags => {
         return `<span class="card__tags">#${tags}</span>`;
     }).join('');
     
@@ -44,43 +44,85 @@ return`<article class= card__photographers>
 function createHomePage(){
         
         getData().then (data =>{
-        const photographers = data.photographers;
+        let photographers = data.photographers;
         createPhotographers(photographers);
-     
-filterTags(photographers);
+        filterTags(photographers);
 })};
 createHomePage();
 
 
+
+
 // function qui filtre les tags
 
-function filterTags (photographers){
 
-  const tagsLink= document.querySelectorAll('.tags'); 
-  console.log(tagsLink);
-  for (let i =0; i< tagsLink.length; i++){
-      tagsLink[i].addEventListener('click', function(event){
-        event.preventDefault(); 
-    photographers.map(photographers => {
-    const tags = photographers.tags;
-      const ArrayOfTags = tags.map(element => element);
-     console.log(ArrayOfTags);
+
+
  
-      const navLink = tagsLink[i].innerText.slice(1).toLowerCase();
+function filterTags(photographers){
+const navLinks =document.querySelectorAll('.tags');
+    
+    for (let valeur of navLinks){ 
+      let tagsLink = valeur.innerText.slice(1).toLowerCase();
+      
+      valeur.addEventListener('click', function(e){
+      e.preventDefault();
+      main.innerHTML='';
+
+        const filteredCard = photographers.map(photographers => {
+        let tags = photographers.tags;
+        let tagsArray = tags.map(tags => {
+              return `<span class="card__tags">#${tags}</span>`;
+          }).join('');
+        
+
+         let ArrayOfTags = tags.map(element => element);
+				if (ArrayOfTags.includes(tagsLink)) {
+					return `
+                <article class="card">
+                    <a id="${photographers.id}" class="card__general-link" href="">
+                        <img class="card__image" src="./img/portrait/${photographers.portrait}" alt="">
+                        <h2 class="card__name">${photographers.name}</h2>
+                    </a>
+                    <p class="card__location">${photographers.city}, ${photographers.country}</p>
+                    <p class="card__tagline">${photographers.tagline}</p>
+                    <p class="card__price">${photographers.price}&euro;/jour</p>
+                    <div class="card__tags-container">${tagsArray}</div>
+                </article>`;
+				} else {
+					return '';
+				};
+			
+   }).join('');
+    main.innerHTML = filteredCard;
+
+})
        
-      if (ArrayOfTags.includes(navLink)){
-         const displaycard= document.getElementsByClassName('card__photographers')
-         displaycard.style.display='none'
-        }
-        else {
-          return '';
-        }
-       });  
-     });
-
-  }
-
+  };
 };
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
 
 
   
