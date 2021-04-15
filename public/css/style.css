@@ -122,7 +122,7 @@ a {
   margin: 25px 0 100px 100px;
 }
 
-.presentation {
+#presentation {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -163,7 +163,7 @@ a {
   color: #525252;
 }
 
-.contact__me {
+#contact__me {
   width: 170px;
   height: 69px;
   border-radius: 5px;
@@ -232,11 +232,34 @@ a {
   display: none;
 }
 
-i {
+.fa-chevron-up {
   font-size: 16px;
   position: absolute;
   top: 21px;
   right: 20px;
+}
+
+#mediaGallery {
+  display: grid;
+  grid-template-columns: repeat(3, 3fr);
+  margin-left: 100px;
+}
+
+.photo {
+  width: 350px;
+  height: 300px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  margin-right: 95px;
+}
+
+.fa-heart {
+  color: #901C1C;
+  font-size: 20px;
+}
+
+.photo__figcaption {
+  margin-bottom: 30px;
 }
 
 form {
@@ -258,9 +281,11 @@ form {
   position: absolute;
   font-size: 42px;
   color: #ffff;
+  right: 35px;
+  top: 35px;
 }
 
-.name__form {
+#name__form {
   font-size: 64px;
   font-style: normal;
   font-weight: 400;
