@@ -11,7 +11,7 @@ export function createPhotographers(photographers) {
         }).join('');
         
     return`<article class= card__photographers>
-      <a id= '${photographers.id}' class= card__link href="" aria-label='${photographers.name}'> 
+      <a id= '${photographers.id}' class= card__link href="photographer.html?id=${photographers.id}" aria-label='${photographers.name}'> 
           <img class='card__image' src="img/portrait/${photographers.portrait}" alt="">
           <h2 class='card__name'>${photographers.name}</h2>
        </a>
@@ -73,17 +73,3 @@ export function filterTags(photographers){
   };
   
 
-  export function photographersPage (medias,photographers){
-  const mediasCard = medias.map(item=>{
- const mediaId =item.photographerId;
- console.log(mediaId)
-  });
-  
-  const photographerId= photographers.map(item=>{
-    const photoId = item.id;
-    console.log(photoId);
-  })
-
-  
-  
-}
