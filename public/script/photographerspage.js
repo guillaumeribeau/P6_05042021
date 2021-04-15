@@ -3,16 +3,18 @@ import {getData} from './getdata.js'
 
 
 const mediaGallery = document.getElementById('mediaGallery');
-const photographerName= document.getElementsByClassName('name');
-const photographerLocation= document.getElementsByClassName('location');
-const photographerDesc = document.getElementsByClassName('tagsline');
-const photographertags= document.getElementsByClassName('hashtag');
-const photographerPhoto= document.getElementsByClassName('photo');
+const photographerName= document.getElementById('name');
+const photographerCity= document.getElementById('city');
+const photographerCountry= document.getElementById('country');
+const photographerDesc = document.getElementById('tagsline');
+const photographertags= document.getElementById('hashtag');
+const photographerPhoto= document.getElementById('photo');
 
-
+console.log(photographerName)
 
 const urlParams = new URLSearchParams(window.location.search);
 const photographerID = urlParams.get('id');
+
 
 
 
@@ -22,38 +24,66 @@ function createPhotographersPage(){
     const photographersList = data.photographers;
     const photographerIndex = getPhotographer(photographerID, photographersList);
     const photographerMediaList = getPhotographerMediaList(photographerID, mediaList);
-    //generateProfile(photgrapherIndex, photographerList, photographerMediaList);
+    generateProfile(photographerIndex, photographersList, photographerMediaList);
     //generateGallery(photographerMediaList, selectedOrder);
     console.log(mediaList);
     console.log(photographersList);
-   
-
+     
 })};
 
 createPhotographersPage();
 
 
-// fonction qui permet de recuperer L'id du photographe de la page
-function getPhotographer(photographerID,photographersList){
-   let ID = photographersList.map(item=> item.id);
-  
- for (let indexID of ID){
-      console.log(indexID)
-    if(indexID == photographerID){
-     return indexID;
-    
-     }
-    }
-};
 
-// fonction qui recupères les médias du photographe:
-function getPhotographerMediaList(photographerID,mediaList){
-
-let mediaListId = mediaList.map(item=>)
-
-
- 
-
-
+// fonction qui recupère le tableau du photographe par raport à l'id 
+function getPhotographer(ID,photographersList){
+    let tableauDuPhotograph = [];
+     console.log(tableauDuPhotograph);
+    for(var i=0; i<photographersList.length;i++)
+    {
+        if(photographersList[i].id == ID)
+        {
+            tableauDuPhotograph.push(photographersList[i]);
+        }
+    } 
+    return tableauDuPhotograph;
 
 }
+
+
+
+// fonction qui recupères les médias du photographe:
+function getPhotographerMediaList(ID, baseMediaList){
+        let mediaList = [];
+         console.log(mediaList)
+        for(var i=0; i<baseMediaList.length;i++)
+        {
+            if(baseMediaList[i].photographerId == ID)
+            {
+                mediaList.push(baseMediaList[i]);
+            }
+        } 
+        return mediaList;
+
+    }
+
+ 
+//
+    function generateProfile(photographerIndex, photographersList, photographerMediaList){
+         //accede à l'objet du photographe
+        let photographer = photographerIndex[0];
+   photographerName.innerText=photographer.name
+   photographerCity.innerText=photographer.city;
+   photographerCountry.innerText=photographer.country;
+   
+
+}
+
+    
+    
+    
+    
+    
+    
+
+

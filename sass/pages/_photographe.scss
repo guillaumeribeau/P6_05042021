@@ -28,7 +28,7 @@ a{
     flex-direction: column;
     padding-left: 50px;
 }
-.photo {
+#photo {
 width: 200px;
 height: 200px;
 border-radius: 50%;
@@ -37,18 +37,18 @@ margin-right: 50px;
 }
 
 
-.name{
+#name{
     color:$secondarycolor;
     font-size:36px;
     line-height: 47px;
 }
-.location{
+#city, #country{
     color:$primarycolor;
     font-size:13px;
     line-height:17px;
 }
 
-.tagsline{
+#tagsline{
   font-size: 18px;
   line-height: 23px;
   color: #525252;
