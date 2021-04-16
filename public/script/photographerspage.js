@@ -108,7 +108,7 @@ function getPhotographerMediaList(ID, baseMediaList){
      `
      
     }).join('');
- console.log(image)
+
     // injectes le Html dans la section gallery
     mediaGallery.innerHTML= image;
 
