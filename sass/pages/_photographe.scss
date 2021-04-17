@@ -150,7 +150,6 @@ margin-top: 18px;
     margin-left: 100px;
 }
 
-
 .photo{
     width:350px;
     height:300px;
@@ -159,20 +158,43 @@ margin-top: 18px;
     margin-right: 95px;
 }
 
+.video {
+    display: block;
+    object-fit: cover;
+    width: 350px;
+    height:300px;
+    border-radius: 5px;
+}
 .fa-heart {
     color: $primarycolor;
     font-size: 20px;
+
 }
+
+
+
 .photo__figcaption{
-    margin-bottom: 30px;
+margin-bottom: 30px;
 }
 
+.description__photo,.photo__price, .likes{
+    font-size:24px ;
+    color:$primarycolor;
+    margin-left: 20px;
+    white-space: nowrap;
+}
 
+.description__photo{
+    margin-right: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+}
 
 
 // formulaire de contact 
 #formulaire{
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     top:0px;
@@ -181,9 +203,6 @@ margin-top: 18px;
      height: 100%;
 z-index: 100;
 background:rgba(196, 196, 196, 0.4);
-
-
-
 }
 
 

@@ -95,20 +95,37 @@ function getPhotographerMediaList(ID, baseMediaList){
 
     //affiche les medias dans la gallery
      const image =photographerMediaList.map(media=>{
-     return `
+     if (media.hasOwnProperty('video')){
+      return `<figure class='figure'>
+      <video controls alt='${media.alt}' class='video' type="video/mp4" src="./img/${photographer.name}/${media.video}"></video> 
+      <figcaption class='photo__figcaption'>
+      <span class='description__photo'>${media.alt}</span>
+      <span class='photo__price'>${media.price}€</span>
+      <span class='likes'>${media.likes}  </span><i class="fas fa-heart"></i>
+      </figcatption>
+ 
+      </figure>`
+
+     }
+     
+     else{
+
+        return `
      <figure class='figure'>
-     <img class='photo' src="./img/${photographer.name}/${media.image}"> 
+     <img alt='${media.alt}' class='photo' src="./img/${photographer.name}/${media.image}"> 
      <figcaption class='photo__figcaption'>
-     <span class='description__photo'> description de la photo </span>
-     <span class='photo__price'>${media.price}</span>
+     <span class='description__photo'>${media.alt}</span>
+     <span class='photo__price'>${media.price}€</span>
      <span class='likes'>${media.likes}  </span><i class="fas fa-heart"></i>
      </figcatption>
 
      </figure>
      `
-     
+    }
+
     }).join('');
 
+     
     // injectes le Html dans la section gallery
     mediaGallery.innerHTML= image;
 
