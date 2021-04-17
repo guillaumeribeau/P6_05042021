@@ -295,8 +295,8 @@ a {
   position: absolute;
   font-size: 42px;
   color: #ffff;
-  right: 35px;
-  top: 35px;
+  right: 20px;
+  top: 20px;
 }
 
 #name__form {
@@ -338,6 +338,11 @@ input {
   width: 599px;
   color: #525252;
   font-size: 24px;
+}
+
+.error {
+  margin-left: 35px;
+  color: red;
 }
 
 #btn__submit {
