@@ -151,22 +151,6 @@ function getPhotographerMediaList(ID, baseMediaList){
 }
 
    
-
-
-// dropdown 
-
-const menuDrop = document.querySelector('.dropdown');
-const arrow = document.getElementById('dropdownMenuLink');
-    
-arrow.addEventListener('click',function(){
-menuDrop.style.height='60px'
-
-})
-
-
-
-
-
 // petite fonction pour trier la gallery
 
  // trier la gallery par likes
@@ -204,3 +188,26 @@ function trierGalleryTitre(photographerMediaList){
 orderTitre.push(titre)
 
 };
+
+
+
+//dropdown
+
+// permet d'ouvrir le menu en ajoutant la classe Open
+const wrapperDrop =document.querySelector('.custom-select-wrapper')
+wrapperDrop.addEventListener('click', function() {
+    this.querySelector('.custom-select').classList.toggle('open');
+})
+
+
+for (const option of document.querySelectorAll(".custom-option")) {
+    option.addEventListener('click', function() {
+        if (!this.classList.contains('selected')) {
+            this.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
+            this.classList.add('selected');
+            this.closest('.custom-select').querySelector('.custom-select__trigger span').textContent = this.textContent;
+          }
+        
+    })
+}
+

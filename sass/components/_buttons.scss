@@ -1,0 +1,33 @@
+// compteur de likes
+
+.compteur__likes {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 376px;
+    height: 89px;
+    background-color: $secondarycolor;
+    bottom: 10px;
+    right:3%;
+    border-radius: 5px;
+    font-size: 24px;
+}
+
+#compteur__heart{
+margin-right: 67px;
+color:#000000;
+font-size: 18px;
+}
+.numbers_likes{
+margin-left: 31px;
+
+}
+
+.price__jour{
+    margin-left:67px;
+    margin-right: 34px;
+
+}
+
+

@@ -1,0 +1,114 @@
+
+
+// formulaire de contact 
+#formulaire{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top:0px;
+    position:fixed;
+     width: 100%;
+     height: 100%;
+z-index: 100;
+background:rgba(196, 196, 196, 0.4);
+}
+
+
+#forms{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+margin-top: 76px;
+z-index: 101;
+height: 900px;
+width: 669px;
+border-radius: 5px;
+background-color: $secondarycolor;
+}
+
+.title__form{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+
+    i{
+        position: absolute;
+        font-size: 42px;
+        color:#ffff;
+        right:20px;
+        top:20px
+
+    }
+
+}
+
+
+#name__form{
+ 
+font-size: 64px;
+font-style: normal;
+font-weight: 400;
+line-height: 83px;
+letter-spacing: 0em;
+text-align: left;
+margin-left: 35px;
+}
+
+.forms__groups{
+    display: flex;
+    flex-direction: column;
+    margin-left: 35px;
+}
+label{
+font-size: 36px;
+font-style: normal;
+font-weight: 400;
+line-height: 47px;
+letter-spacing: 0em;
+text-align: left;
+color: #312E2E;
+}
+
+input{
+height: 68px;
+width: 599px;
+border-radius: 5px;
+font-size: 24px;
+color:#525252;
+}
+
+#msg{
+    height:170px;
+    width: 599px;
+    color:#525252;
+    font-size: 24px;
+}
+
+.error{
+    margin-left: 35px;
+    
+}
+
+
+#btn__submit{
+    
+height: 69px;
+width: 170px;
+border-radius: 5px;
+background-color:$primarycolor ;
+color:#FFFF;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: 23px;
+letter-spacing: 0em;
+text-align: center;
+margin-left:35px;
+margin-bottom: 38px;
+cursor: pointer;
+}
+#message__confirmation{
+    display: none;
+    margin-left: 30px;
+}

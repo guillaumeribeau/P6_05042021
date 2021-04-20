@@ -44,18 +44,21 @@
     </article>
 
 
-<!-- dropdown -->
-<p class= 'trier'>Trier par</p>
-<div class="dropdown">
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item dropdown-toggle" id='popularite' href="#">Popularité</a>
-    <a class="dropdown-item" id='date'href="#">Date</a>
-    <a class="dropdown-item" href="#" id='afternone'>Titre</a>
-   </div>  
-
-    <a href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-chevron-up"></i></a>
- </div>
+    <!-- dropdown-->
+    
+    <div class="custom-select-wrapper">
+        <div class="custom-select">
+            <div class="custom-select__trigger"><span>Popularité</span>
+                <div class="arrow"></div>
+            </div>
+            <div class="custom-options">
+                <span class="custom-option selected" data-value="popularité">Popularité</span> 
+                <span class="custom-option" data-value="date">Date</span>
+                <span class="custom-option" data-value="titre">Titre</span>
+            </div>
+        </div>  
+        <span class='trier'>Trier par</span>
+    </div>
 
 
 <section id='mediaGallery'>
