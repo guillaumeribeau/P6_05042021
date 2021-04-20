@@ -352,7 +352,8 @@
         "tags": ["travel"],
         "likes": 88,
         "date": "2019-02-03",
-        "price": 45
+        "price": 45,
+        "alt":"Paysage de montagne"
       },
       {
         "id": 625025343,
@@ -402,7 +403,8 @@
         "tags": ["events"],
         "likes": 25,
         "date": "2019-06-21",
-        "price": 45
+        "price": 45,
+        "alt":"Table des convives"
       },
       {
         "id": 65235234,
@@ -412,7 +414,7 @@
         "likes": 52,
         "date": "2019-06-25",
         "price": 45,
-        "alt":"couple de mariés"
+        "alt":"Couple de mariés"
       },
       {
         "id": 23523434,
@@ -421,7 +423,8 @@
         "tags": ["events"],
         "likes": 77,
         "date": "2019-06-28",
-        "price": 45
+        "price": 45,
+        "alt":"Couple mariés qui s'embrasse"
       },
       {
         "id": 5234343,
@@ -452,7 +455,7 @@
         "likes": 25,
         "date": "2019-04-03",
         "price": 60,
-        "alt":"Temple tour au japon"
+        "alt":"Temple au japon"
 
       },
       {

@@ -119,7 +119,9 @@ btnSubmit.addEventListener('click', function (e){
   afficherInput();
   validation();
    if (count==0){
-   forms.style.display = "none";}
+   const messageConfirmation = document.getElementById('message__confirmation');
+   messageConfirmation.style.display='inline-block'  
+  }
 
 });
 

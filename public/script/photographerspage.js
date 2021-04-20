@@ -10,6 +10,7 @@ const photographerDesc = document.getElementById('tagsline');
 const photographertags= document.getElementById('hashtag');
 const article = document.getElementById('presentation');
 
+
 console.log(photographerName)
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -24,10 +25,13 @@ function createPhotographersPage(){
     const photographersList = data.photographers;
     const photographerIndex = getPhotographer(photographerID, photographersList);
     const photographerMediaList = getPhotographerMediaList(photographerID, mediaList);
-    generateProfile(photographerIndex,photographerMediaList);
-    //generateGallery(photographerMediaList, selectedOrder);
-    console.log(mediaList);
-    console.log(photographersList);
+    const tierParDate=trierGalleryDate(photographerMediaList);
+    const trierparTitre =trierGalleryTitre(photographerMediaList); 
+    const trierParLikes= trierGalleryLikes(photographerMediaList);
+    generateProfile(photographerIndex,photographerMediaList,trierParLikes);
+    
+   
+   
      
 })};
 
@@ -85,6 +89,7 @@ function getPhotographerMediaList(ID, baseMediaList){
    photographerCountry.innerText=photographer.country;
    photographerDesc.innerText=photographer.tagline;
    photographertags.innerHTML=`${tagsArray}`;
+   
 
    // injecte le portrait du photographe
     let createImg = document.createElement('div');
@@ -103,8 +108,14 @@ function getPhotographerMediaList(ID, baseMediaList){
       <span class='photo__price'>${media.price}€</span>
       <span class='likes'>${media.likes}  </span><i class="fas fa-heart"></i>
       </figcatption>
- 
-      </figure>`
+     </figure>
+
+     <div class='compteur__likes'>
+    
+    <span class='numbers_likes'>1250</span>
+    <i id='compteur__heart' class="fas fa-heart"></i>
+    <span class='price__jour'></span>
+    </div>`
 
      }
      
@@ -132,14 +143,64 @@ function getPhotographerMediaList(ID, baseMediaList){
     // injectes le nom dans le formulaire de contact
     const formsName= document.getElementById('name__form');
     formsName.innerHTML=`Contactez-moi <br>${photographer.name}`
+    
+    // injectes le prix par jour dans le html
+    const totalLikes= document.querySelector('.price__jour');
+    totalLikes.innerText=`${photographer.price}€/jour`
 
 }
 
-    
-    
-    
-    
-    
-    
+   
 
 
+// dropdown 
+
+const menuDrop = document.querySelector('.dropdown');
+const arrow = document.getElementById('dropdownMenuLink');
+    
+arrow.addEventListener('click',function(){
+menuDrop.style.height='60px'
+
+})
+
+
+
+
+
+// petite fonction pour trier la gallery
+
+ // trier la gallery par likes
+function trierGalleryLikes(photographerMediaList){
+let orderLikes=[];
+const popularite= photographerMediaList.sort((a,b) => b.likes- a.likes);
+orderLikes.push(popularite);
+}
+
+
+//trier la gallery par date 
+
+function trierGalleryDate(photographerMediaList){
+let orderDate=[];
+const date= photographerMediaList.sort((a,b)=> b.date-a.date);
+orderDate.push(date);
+}
+
+// trier la galley par titre 
+
+function trierGalleryTitre(photographerMediaList){
+    let orderTitre=[];
+    const titre= photographerMediaList.sort((a,b)=> {
+
+   if(a.alt<b.alt){
+        return -1;
+   }
+        else if (a.alt>b.alt){
+       return 1;
+   }
+
+   else return 0
+    
+  })
+orderTitre.push(titre)
+
+};

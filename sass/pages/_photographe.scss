@@ -71,8 +71,7 @@ margin-right: 50px;
 
 
 .dropdown{
-
-    height: 170px;
+     height: 170px;
     width: 170px;
     border-radius: 5px;
     background-color: $primarycolor;
@@ -112,9 +111,6 @@ letter-spacing: 0em;
 text-align: left;
 padding-left: 20px;
 margin-top: 18px;
-
-
-
 
 &::after {
     content:'';
@@ -167,6 +163,7 @@ margin-top: 18px;
 }
 .fa-heart {
     color: $primarycolor;
+    margin-left: 6px;
     font-size: 20px;
 
 }
@@ -174,22 +171,70 @@ margin-top: 18px;
 
 
 .photo__figcaption{
+display: flex;
+justify-content: space-between;
+align-items: center;
 margin-bottom: 30px;
+width: 350px;
 }
 
 .description__photo,.photo__price, .likes{
     font-size:24px ;
     color:$primarycolor;
-    margin-left: 20px;
+    margin-left: 15px;
     white-space: nowrap;
+}
+.likes {
+
 }
 
 .description__photo{
-    margin-right: auto;
+    margin-left: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     
 }
+
+// compteur de likes
+
+.compteur__likes {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 376px;
+    height: 89px;
+    background-color: $secondarycolor;
+    bottom: 10px;
+    right:3%;
+    border-radius: 5px;
+    font-size: 24px;
+}
+
+#compteur__heart{
+margin-right: 67px;
+color:#000000;
+font-size: 18px;
+}
+.numbers_likes{
+margin-left: 31px;
+
+}
+
+.price__jour{
+    margin-left:67px;
+    margin-right: 34px;
+
+}
+
+
+
+
+
+
+
+
+
 
 
 // formulaire de contact 
@@ -279,7 +324,7 @@ color:#525252;
 
 .error{
     margin-left: 35px;
-    color:red;
+    
 }
 
 
@@ -299,4 +344,8 @@ text-align: center;
 margin-left:35px;
 margin-bottom: 38px;
 cursor: pointer;
+}
+#message__confirmation{
+    display: none;
+    margin-left: 30px;
 }
