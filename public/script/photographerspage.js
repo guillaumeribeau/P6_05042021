@@ -25,26 +25,20 @@ function createPhotographersPage(){
     const photographersList = data.photographers;
     const photographerIndex = getPhotographer(photographerID, photographersList);
     const photographerMediaList = getPhotographerMediaList(photographerID, mediaList);
-   
+   //permet de trier par popularité au chargement de la page
     trierGalleryLikes(photographerMediaList);
-   
+   // trie les medias en fonction du filtres du dropdown
     trierMedia(photographerIndex,photographerMediaList);
     generateProfile(photographerIndex,photographerMediaList);
    
    
-   // compteur de tous les likes
-    compteurTotal(photographerMediaList);
    
-     
+   
 })};
 
 createPhotographersPage();
 
 
-
-
-
-  
 
 // fonction qui recupère le tableau du photographe par raport à l'id 
 function getPhotographer(ID,photographersList){
@@ -158,7 +152,8 @@ function getPhotographerMediaList(ID, baseMediaList){
     
     // compteur like des medias
     compteurLikes();
- 
+     // compteur de tous les likes
+    compteurTotal(photographerMediaList);
     
 }
 
@@ -184,42 +179,6 @@ const wrapperDrop =document.querySelector('.custom-select-wrapper')
            }
      })
  }
-
-
-
-
-// compteur de likes par medias
-
-function compteurLikes(){
-
-    const allLikes= document.querySelectorAll('figure i');
- 
-
-   // pour chaque coeur on incrementes de 1 
- for ( let chaquecoeur of allLikes){
-    chaquecoeur.addEventListener('click' , ()=>{
-        const nombreLike =chaquecoeur.parentNode.querySelector('.likes');
-        let count = nombreLike.innerHTML;
-        nombreLike.innerHTML= ++count;
-     })
-    }
-
-  }
-
-// compteur de likes au total 
-
-function compteurTotal(photographerMediaList){
-const totalLikes= document.querySelector('.numbers_likes')
-      
-      const totalInitial = photographerMediaList.reduce((total,like)=>{
-       return total + (like.likes);
-},0)
-totalLikes.innerHTML=totalInitial;
-      
-}
-
-
-
 
 
 
@@ -285,3 +244,50 @@ function trierMedia (photographerIndex,photographerMediaList){
 }
 
 }
+
+
+
+// compteur de likes par medias
+
+function compteurLikes(){
+
+    const allLikes= document.querySelectorAll('figure i');
+ 
+// pour chaque coeur on incrementes de 1 
+ for ( let chaquecoeur of allLikes){
+    chaquecoeur.addEventListener('click' , ()=>{
+        // si pas la class increment on increment de 1
+        if (!chaquecoeur.classList.contains('increment')){
+        const nombreLike =chaquecoeur.parentNode.querySelector('.likes');
+       let count = nombreLike.innerHTML;
+        nombreLike.innerHTML= ++count;
+        chaquecoeur.classList.add('increment');
+       }
+      // sinon on decremente de 1
+      else if (chaquecoeur.classList.contains('increment')){
+        const nombreLike =chaquecoeur.parentNode.querySelector('.likes');
+        let count = nombreLike.innerHTML;
+        chaquecoeur.classList.remove('increment');
+         nombreLike.innerHTML= --count;
+        }
+    })
+    }
+
+
+
+}
+
+
+
+// compteur de likes au total 
+
+function compteurTotal(photographerMediaList){
+const totalLikes= document.querySelector('.numbers_likes')
+      
+      const totalInitial = photographerMediaList.reduce((total,like)=>{
+       return total + (like.likes);
+},0)
+totalLikes.innerHTML=totalInitial;
+      
+}
+
