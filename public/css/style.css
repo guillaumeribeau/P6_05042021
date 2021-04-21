@@ -113,7 +113,7 @@ a {
 
 .custom-option.selected {
   color: #ffffff;
-  background-color: #901C1C;
+  display: none;
 }
 
 .arrow {

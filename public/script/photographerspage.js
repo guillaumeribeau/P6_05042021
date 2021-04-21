@@ -38,52 +38,7 @@ function createPhotographersPage(){
 
 createPhotographersPage();
 
-  
-// petite fonction pour trier la gallery
 
- // trier la gallery par likes
- function trierGalleryLikes(photographerMediaList){
-  const popularite= photographerMediaList.sort((a,b) => b.likes- a.likes);
-    
-    }
-    
-    
-    //trier la gallery par date 
-    
-    function trierGalleryDate(photographerMediaList){
-    
-    const date= photographerMediaList.sort((a,b)=>{
-  if (a.date<b.date){
-    return 1;
-    }
-    else if (a.date>b.date){
-        return -1;
-    }
-    else return 0;
-    
-    
-})
-    
-};
-      // trier la galley par titre 
-    
-    function trierGalleryTitre(photographerMediaList){
-        
-        const titre= photographerMediaList.sort((a,b)=> {
-    
-       if(a.alt<b.alt){
-            return -1;
-       }
-            else if (a.alt>b.alt){
-           return 1;
-       }
-    
-       else return 0
-        
-      })
-    
-    
-    };
     
     
 
@@ -209,24 +164,38 @@ function getPhotographerMediaList(ID, baseMediaList){
 
 // permet d'ouvrir le menu en ajoutant la classe Open
 const wrapperDrop =document.querySelector('.custom-select-wrapper')
-wrapperDrop.addEventListener('click', function() {
+   wrapperDrop.addEventListener('click', function() { 
     this.querySelector('.custom-select').classList.toggle('open');
     
-})
+    })
 
 
 for (const option of document.querySelectorAll(".custom-option")) {
     option.addEventListener('click', function() {
         
-        if (!this.classList.contains('selected')) {
-            this.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
-            this.classList.add('selected');
-            this.closest('.custom-select').querySelector('.custom-select__trigger span').textContent = this.textContent;
-           
-          }
+
+        if (!option.classList.contains('selected')) {
+            option.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
+            option.classList.add('selected');
+            option.closest('.custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent;
+           }
+
+
+
+
         
     })
 }
+
+
+// const titre = document.querySelector('.custom-select__trigger');
+// const sousTitre= document.querySelector('.selected');
+// if (titre.innerHTML=sousTitre.innerHTML){
+//     sousTitre.style.display='none';
+
+
+
+
 
 
 
@@ -242,10 +211,10 @@ function compteurLikes(){
    // pour chaque coeur on incrementes de 1 
  for ( let chaquecoeur of allLikes){
     chaquecoeur.addEventListener('click' , ()=>{
-    
-     const nombreLike =chaquecoeur.parentNode.querySelector('.likes');
-     let count = nombreLike.innerHTML;
-     nombreLike.innerHTML= ++count;
+        const nombreLike =chaquecoeur.parentNode.querySelector('.likes');
+        let count = nombreLike.innerHTML;
+        nombreLike.innerHTML= ++count;
+
 
     })
   }
@@ -263,3 +232,53 @@ const totalLikes= document.querySelector('.numbers_likes')
 totalLikes.innerHTML=totalInitial;
       
 }
+
+
+
+
+  
+// petite fonction pour trier la gallery
+
+ // trier la gallery par likes
+ function trierGalleryLikes(photographerMediaList){
+    const popularite= photographerMediaList.sort((a,b) => b.likes- a.likes);
+      
+      }
+      
+      
+      //trier la gallery par date 
+      
+      function trierGalleryDate(photographerMediaList){
+      
+      const date= photographerMediaList.sort((a,b)=>{
+    if (a.date<b.date){
+      return 1;
+      }
+      else if (a.date>b.date){
+          return -1;
+      }
+      else return 0;
+      
+      
+  })
+      
+  };
+        // trier la galley par titre 
+      
+      function trierGalleryTitre(photographerMediaList){
+          
+          const titre= photographerMediaList.sort((a,b)=> {
+      
+         if(a.alt<b.alt){
+              return -1;
+         }
+              else if (a.alt>b.alt){
+             return 1;
+         }
+      
+         else return 0
+          
+        })
+      
+      
+      };
