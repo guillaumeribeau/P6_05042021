@@ -120,12 +120,19 @@ btnSubmit.addEventListener('click', function (e){
   validation();
    if (count==0){
    const messageConfirmation = document.getElementById('message__confirmation');
-   messageConfirmation.style.display='inline-block'  
+   messageConfirmation.style.display='inline-block' 
+   document.getElementById('forms').reset();
+    disparition();
+  
   }
 
 });
 
 
-
-
-  
+// fait disparaître le formualaire au bout de 3s
+ function disparition(){setTimeout(() => {
+   document.getElementById('formulaire').style.display='none'
+    }, 3000); 
+   
+}
+   
