@@ -25,13 +25,15 @@ function createPhotographersPage(){
     const photographersList = data.photographers;
     const photographerIndex = getPhotographer(photographerID, photographersList);
     const photographerMediaList = getPhotographerMediaList(photographerID, mediaList);
-   //const tierParDate=trierGalleryDate(photographerMediaList);
-    const trierParLikes= trierGalleryLikes(photographerMediaList);
-    //const trierparTitre =trierGalleryTitre(photographerMediaList); 
-   generateProfile(photographerIndex,photographerMediaList);
-    // compteur de tous les likes
+   
+    trierGalleryLikes(photographerMediaList);
+   
+    trierMedia(photographerIndex,photographerMediaList);
+    generateProfile(photographerIndex,photographerMediaList);
+   
+   
+   // compteur de tous les likes
     compteurTotal(photographerMediaList);
-
    
      
 })};
@@ -39,8 +41,10 @@ function createPhotographersPage(){
 createPhotographersPage();
 
 
-    
-    
+
+
+
+  
 
 // fonction qui recupère le tableau du photographe par raport à l'id 
 function getPhotographer(ID,photographersList){
@@ -154,7 +158,7 @@ function getPhotographerMediaList(ID, baseMediaList){
     
     // compteur like des medias
     compteurLikes();
-  
+ 
     
 }
 
@@ -169,8 +173,7 @@ const wrapperDrop =document.querySelector('.custom-select-wrapper')
     
     })
 
-
-for (const option of document.querySelectorAll(".custom-option")) {
+ for (const option of document.querySelectorAll(".custom-option")) {
     option.addEventListener('click', function() {
         
 
@@ -179,24 +182,8 @@ for (const option of document.querySelectorAll(".custom-option")) {
             option.classList.add('selected');
             option.closest('.custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent;
            }
-
-
-
-
-        
-    })
-}
-
-
-// const titre = document.querySelector('.custom-select__trigger');
-// const sousTitre= document.querySelector('.selected');
-// if (titre.innerHTML=sousTitre.innerHTML){
-//     sousTitre.style.display='none';
-
-
-
-
-
+     })
+ }
 
 
 
@@ -214,12 +201,10 @@ function compteurLikes(){
         const nombreLike =chaquecoeur.parentNode.querySelector('.likes');
         let count = nombreLike.innerHTML;
         nombreLike.innerHTML= ++count;
+     })
+    }
 
-
-    })
   }
-
-}
 
 // compteur de likes au total 
 
@@ -236,49 +221,67 @@ totalLikes.innerHTML=totalInitial;
 
 
 
-  
-// petite fonction pour trier la gallery
 
- // trier la gallery par likes
- function trierGalleryLikes(photographerMediaList){
-    const popularite= photographerMediaList.sort((a,b) => b.likes- a.likes);
-      
-      }
-      
-      
-      //trier la gallery par date 
-      
-      function trierGalleryDate(photographerMediaList){
-      
-      const date= photographerMediaList.sort((a,b)=>{
-    if (a.date<b.date){
-      return 1;
-      }
-      else if (a.date>b.date){
-          return -1;
-      }
-      else return 0;
-      
-      
+
+
+// trie la gallery par likes à l'ouverture de la pages
+
+function trierGalleryLikes(photographerMediaList){
+ const popularite= photographerMediaList.sort((a,b) => b.likes- a.likes);
+
+return popularite;
+}
+
+
+// fonction qui trie les medias 
+
+function trierMedia (photographerIndex,photographerMediaList){
+    let inputdrop= document.querySelectorAll('.custom-option');
+   // on ecoute le click sur le dropdown
+     for (let value of inputdrop){
+    value.addEventListener('click',function(e){
+   // si on a correspondance on execute la fonction de tri en adequation
+    let inputValue= value.innerHTML;
+    if(inputValue=='Popularité'){
+        const popularite= photographerMediaList.sort((a,b) => b.likes- a.likes);
+        // on execute la fonction generate profil avec le nouveau tableau filtrer.
+        generateProfile(photographerIndex,popularite)
+        
+    }
+     
+    if(inputValue=='Date'){
+  const date= photographerMediaList.sort((a,b)=>{
+  if (a.date<b.date){
+    return 1;
+    }
+    else if (a.date>b.date){
+        return -1;
+    }
+    else return 0;
+    
+    
   })
+     generateProfile(photographerIndex,date)
+    }
+
+    if(inputValue=='Titre'){
+    const titre= photographerMediaList.sort((a,b)=> {
       
-  };
-        // trier la galley par titre 
-      
-      function trierGalleryTitre(photographerMediaList){
-          
-          const titre= photographerMediaList.sort((a,b)=> {
-      
-         if(a.alt<b.alt){
-              return -1;
-         }
-              else if (a.alt>b.alt){
-             return 1;
-         }
-      
-         else return 0
-          
-        })
-      
-      
-      };
+        if(a.alt<b.alt){
+             return -1;
+        }
+             else if (a.alt>b.alt){
+            return 1;
+        }
+     
+        else return 0
+         
+       })
+       generateProfile(photographerIndex,titre)
+    }
+
+    })
+
+}
+
+}
