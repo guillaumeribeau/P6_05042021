@@ -1,4 +1,5 @@
 import {getData} from './getdata.js'
+import{Lightbox} from './carroussel.js'
 
 
 
@@ -30,8 +31,9 @@ function createPhotographersPage(){
    // trie les medias en fonction du filtres du dropdown
     trierMedia(photographerIndex,photographerMediaList);
     generateProfile(photographerIndex,photographerMediaList);
-   
-   
+    // class lightbox qui s'initialise
+    Lightbox.init();
+    
    
    
 })};
@@ -81,7 +83,7 @@ function getPhotographerMediaList(ID, baseMediaList){
         // récupères les hastags 
         let tags = photographer.tags;
         let tagsArray = tags.map(tags => {
-            return `<span class="card__tags">#${tags}</span>`;
+            return `<a href='index.html?id=${tags}'><span class="card__tags">#${tags}</span></a>`;
         }).join('');
 
      // injectes les proprietes du tableau photographe dans le HTML
@@ -102,15 +104,17 @@ function getPhotographerMediaList(ID, baseMediaList){
     //affiche les medias dans la gallery
      const image =photographerMediaList.map(media=>{
      if (media.hasOwnProperty('video')){
-      return `<figure class='figure'>
+      return ` <figure class='figure'>
+      <a href="./img/${photographer.name}/${media.video}">
       <video controls alt='${media.alt}' class='video' type="video/mp4" src="./img/${photographer.name}/${media.video}"></video> 
-      <figcaption class='photo__figcaption'>
+      </a>
+      <figcaption class='photo__figcaption'>  
       <span class='description__photo'>${media.alt}</span>
       <span class='photo__price'>${media.price}€</span>
       <span class='likes'>${media.likes}  </span><i class="fas fa-heart"></i>
       </figcatption>
      </figure>
-
+     
      <div class='compteur__likes'>
     
     <span class='numbers_likes'>1250</span>
@@ -124,7 +128,9 @@ function getPhotographerMediaList(ID, baseMediaList){
 
         return `
      <figure class='figure'>
+     <a href="./img/${photographer.name}/${media.image}">
      <img alt='${media.alt}' class='photo' src="./img/${photographer.name}/${media.image}"> 
+     </a>
      <figcaption class='photo__figcaption'>
      <span class='description__photo'>${media.alt}</span>
      <span class='photo__price'>${media.price}€</span>
@@ -152,7 +158,6 @@ function getPhotographerMediaList(ID, baseMediaList){
     
     // compteur like des medias
     compteurLikes();
-     // compteur de tous les likes
     compteurTotal(photographerMediaList);
     
 }
@@ -251,8 +256,11 @@ function trierMedia (photographerIndex,photographerMediaList){
 
 function compteurLikes(){
 
+     // selectionne tous les coeurs
     const allLikes= document.querySelectorAll('figure i');
- 
+    
+    
+   
 // pour chaque coeur on incrementes de 1 
  for ( let chaquecoeur of allLikes){
     chaquecoeur.addEventListener('click' , ()=>{
@@ -262,32 +270,41 @@ function compteurLikes(){
        let count = nombreLike.innerHTML;
         nombreLike.innerHTML= ++count;
         chaquecoeur.classList.add('increment');
-       }
+        const totalLikes= document.querySelector('.numbers_likes')
+      
+      const totalInitial = photographerMediaList.reduce((total,like)=>{
+       return total + (like.likes);
+
+
+    },0)
+totalLikes.innerHTML=totalInitial;
+
+      }
       // sinon on decremente de 1
       else if (chaquecoeur.classList.contains('increment')){
         const nombreLike =chaquecoeur.parentNode.querySelector('.likes');
         let count = nombreLike.innerHTML;
         chaquecoeur.classList.remove('increment');
          nombreLike.innerHTML= --count;
+         
         }
     })
     }
-
-
-
 }
 
-
-
-// compteur de likes au total 
 
 function compteurTotal(photographerMediaList){
 const totalLikes= document.querySelector('.numbers_likes')
       
       const totalInitial = photographerMediaList.reduce((total,like)=>{
        return total + (like.likes);
-},0)
+
+
+    },0)
 totalLikes.innerHTML=totalInitial;
-      
+
+
+
 }
+
 

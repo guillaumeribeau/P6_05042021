@@ -1,5 +1,11 @@
 
 
+const urlPara = new URLSearchParams(window.location.search);
+let tagsId = urlPara.get('id');
+
+
+
+
 // function qui permet de créer photographe page accueil 
 
 export function createPhotographers(photographers) {
@@ -51,7 +57,7 @@ export function filterTags(photographers){
           if (ArrayOfTags.includes(tagsLink)) {
             return `
                   <article class="card">
-                      <a id="${photographers.id}" class="card__general-link" href="">
+                      <a id="${photographers.id}" class="card__general-link" href="photographer.html?id=${photographers.id}">
                           <img class="card__image" src="./img/portrait/${photographers.portrait}" alt="">
                           <h2 class="card__name">${photographers.name}</h2>
                       </a>

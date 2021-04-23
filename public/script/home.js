@@ -1,4 +1,4 @@
-import {createPhotographers,filterTags} from './functiongeneral.js'
+import {createPhotographers,filterTags} from './index.js'
 import {getData} from './getdata.js'
 
 
