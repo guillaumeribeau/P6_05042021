@@ -106,7 +106,7 @@ function getPhotographerMediaList(ID, baseMediaList){
      if (media.hasOwnProperty('video')){
       return ` <figure class='figure'>
       <a href="./img/${photographer.name}/${media.video}">
-      <video controls alt='${media.alt}' class='video' type="video/mp4" src="./img/${photographer.name}/${media.video}"></video> 
+      <video alt='${media.alt}' class='video' type="video/mp4" src="./img/${photographer.name}/${media.video}"></video> 
       </a>
       <figcaption class='photo__figcaption'>  
       <span class='description__photo'>${media.alt}</span>

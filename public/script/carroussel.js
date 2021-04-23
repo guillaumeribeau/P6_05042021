@@ -3,7 +3,7 @@ export class Lightbox{
 
 static init(){
     // on recupères tous les medias de la page
- const links = Array.from(document.querySelectorAll('a[href$=".jpg"], a[href$=".mp4"]'))
+ const links = Array.from(document.querySelectorAll('a[href$=".mp4"], a[href$=".jpg"]'))
   const gallery =links.map(link=>link.getAttribute('href'));
   
 
@@ -30,22 +30,32 @@ static init(){
 
   }
 
+    // fonction qui charge soit l'image ou la video dans la lightbox
     loadImage(url){
-        this.url= null  /// pour l'instant pas d'image de chargé
-        const image = new Image();
-        const container = this.element.querySelector('.lightbox__container');
-        const loader =document.createElement('div');
-        loader.classList.add('lightbox__loader');
-        container.innerHTML=''
-        container.appendChild(loader);
-        image.onload =  ()=>{
-           container.removeChild(loader)
-           container.appendChild(image) 
-           this.url = url
 
-         }
-         image.src =url
-    }
+
+        if(url.endsWith(".mp4")){
+       const video = document.createElement('video')
+        video.setAttribute('controls',"")
+        const container = this.element.querySelector('.lightbox__container');
+        container.innerHTML=''
+        container.appendChild(video) 
+        this.url = url
+           video.src =url
+        }
+       else if(url.endsWith(".jpg"))
+           {
+       const image = document.createElement('img');
+       const container = this.element.querySelector('.lightbox__container');
+       container.innerHTML=''
+       container.appendChild(image)
+       this.url=url
+       image.src=url
+       }
+
+      }
+        
+    
     
 
      // permet de fermer avec la touche echap
@@ -57,7 +67,7 @@ static init(){
              this.prev(e)
          }
          else if (e.key === 'ArrowRight'){
-             this.next(e)
+             this.next
          }
      }
 

@@ -338,6 +338,11 @@ input {
     opacity: 1;
   }
 }
+video {
+  width: 400px;
+  height: 300px;
+}
+
 header {
   display: flex;
   justify-content: space-between;
