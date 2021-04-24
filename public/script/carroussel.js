@@ -38,10 +38,10 @@ static init(){
        const video = document.createElement('video')
         video.setAttribute('controls',"")
         const container = this.element.querySelector('.lightbox__container');
-        container.innerHTML=''
+         container.innerHTML=''
         container.appendChild(video) 
         this.url = url
-           video.src =url
+        video.src =url
         }
        else if(url.endsWith(".jpg"))
            {
