@@ -117,7 +117,7 @@ function getPhotographerMediaList(ID, baseMediaList){
      
      <div class='compteur__likes'>
     
-    <span class='numbers_likes'>1250</span>
+    <span class='numbers_likes'></span>
     <i id='compteur__heart' class="fas fa-heart"></i>
     <span class='price__jour'></span>
     </div>`
@@ -190,7 +190,7 @@ function compteurLikes(photographerMediaList){
         chaquecoeur.classList.add('increment');
         //incrementes le compteur total
         totalLikes.innerHTML=totalCoeur+=1
-        console.log(totalCoeur);
+        
       }
       // sinon on decremente de 1
       else if (chaquecoeur.classList.contains('increment')){
