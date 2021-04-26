@@ -354,6 +354,13 @@ header h1 {
   color: #901C1C;
   font-size: 12px;
   font-weight: 500;
+  cursor: pointer;
+}
+.header__nav ul li:hover {
+  background-color: #DB8876;
+}
+.header__nav ul li:focus {
+  background-color: #DB8876;
 }
 
 .logo {
@@ -378,6 +385,9 @@ header h1 {
   border-radius: 5px;
   text-align: center;
 }
+.contenu a {
+  color: black;
+}
 
 .main {
   display: grid;
@@ -390,6 +400,9 @@ header h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.card__photographers:focus {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .card__photographers .card__link {
   display: flex;

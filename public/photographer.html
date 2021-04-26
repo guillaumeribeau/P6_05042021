@@ -15,13 +15,14 @@
 <!-- header -->
     <header class="header">
     <a href="index.html">  
-<img id="logo" class='logo' src="img/logofisheye.png" alt="">
+<img id="logo" class='logo' src="img/logofisheye.png" alt="logo du site fisheyes">
 </a>  
     </header>
 
 
 
-<main class= 'main__photographer'>
+<main class= 'main__photographer' aria-hidden="false">
+
 
     <!-- article de presentation du photographe  -->
 
@@ -37,9 +38,8 @@
         <div id='hashtag'></div>
     </div>
 
-        <a href=""><div id='contact__me'>Contactez-moi</div></a>
 
-        
+        <div id='contact__me'><a role='button' aria-haspopup='dialog' href="">Contactez-moi</a></div>
 
     </article>
 
@@ -68,61 +68,55 @@
 </section>
 
 
+</main>
+
 
 
 <!--formulaire de contact-->
-<div id="formulaire">
+<div id="formulaire" role="dialog" aria-hidden="true" tabindex="-1">
 
-  <form id='forms' action="/ma-page-de-traitement" method="post">
-
-   <div class='title__form'>
-      <span id='name__form'></span> 
-    <a href=""><i id='close' class="fas fa-times"></i></a>
+    <form id='forms' action="/ma-page-de-traitement" method="post" role='dialog' tabindex="-1">
+  
+  <div role="group" aria-labelledby="vos coordonnées">
+     <div class='title__form'>
+        <span id='name__form'></span> 
+      <a href=""><i id='close' class="fas fa-times"></i></a>
+     </div>
+  
+     <div class='forms__groups'>
+          <label for="lastname__forms">Prénom</label>
+          <input type="text" id="lastname__forms" name="user_name">
+    </div>
+             <span class='error' id='errorLast'></span>
+  
+     <div class='forms__groups'>
+      <label for="name__forms">Nom</label>
+      <input type="text" id="name__forms" name="user_name">
+    </div>
+              <span class='error' id='errorFirst'></span>
+  
+      <div class='forms__groups'>
+          <label for="mail__forms">Email</label>
+          <input type="email" id="mail__forms" name="user_mail">
+      </div>
+            <span class='error' id='errorMail'></span>
+  </div>
+      <div class='forms__groups'>
+          <label for="msg ">Votre message</label>
+          <textarea id="msg" name="user_message"></textarea>
+      </div>
+  
+      <span class='error' id='errorMessage'></span>
+  
+      <div class="button">
+         <a href=""> <button id='btn__submit' type="submit">Envoyer</button></a>
+         <span id="message__confirmation">Votre message a bien été reçu ! Merci</span>
+      </div>
+  
+  </form>
+  
    </div>
-
-   <div class='forms__groups'>
-        <label for="lastname__forms">Prénom</label>
-        <input type="text" id="lastname__forms" name="user_name">
-  </div>
-           <span class='error' id='errorLast'></span>
-
-   <div class='forms__groups'>
-    <label for="name__forms">Nom</label>
-    <input type="text" id="name__forms" name="user_name">
-  </div>
-            <span class='error' id='errorFirst'></span>
-
-    <div class='forms__groups'>
-        <label for="mail__forms">Email</label>
-        <input type="email" id="mail__forms" name="user_mail">
-    </div>
-          <span class='error' id='errorMail'></span>
-
-    <div class='forms__groups'>
-        <label for="msg">Votre message</label>
-        <textarea id="msg" name="user_message"></textarea>
-    </div>
-
-    <span class='error' id='errorMessage'></span>
-
-    <div class="button">
-       <a href=""> <button id='btn__submit' type="submit">Envoyer</button></a>
-       <span id="message__confirmation">Votre message a bien été reçu ! Merci</span>
-    </div>
-
-</form>
- </div>
-
-
- 
-
-
-
-
-    </main>
-
-
-
+  
 
 </body>
 

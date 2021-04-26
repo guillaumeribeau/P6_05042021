@@ -1,3 +1,5 @@
+const main = document.querySelector('.main__photographer');
+
 
 // recuperation des input
 const inputFirst= document.getElementById('name__forms');
@@ -5,6 +7,7 @@ const inputLast = document.getElementById('lastname__forms');
 const inputEmail= document.getElementById('mail__forms');
 const inputMessage= document.getElementById('msg');
 const forms = document.getElementById('formulaire');
+const formualaire =document.getElementById('forms')
 const inputAll= document.querySelectorAll('.forms__groups input,textarea');
 
 // recuperes les span error
@@ -33,11 +36,20 @@ function afficherMessage(inputdiv){
 // ouvre le formulaire
 btnContactez.addEventListener('click', e=>{
 e.preventDefault();
+main.setAttribute('aria-hidden', 'true');
+forms.setAttribute('aria-hidden','false')
 forms.style.display='flex';
+btnClose.focus();
+
 })
+
+
 // ferme le formualaire
 btnClose.addEventListener('click', e=>{
 e.preventDefault();
+main.setAttribute('aria-hidden', 'false');
+forms.setAttribute('aria-hidden','true')
+
 forms.style.display='none';
 
 })
@@ -129,7 +141,7 @@ btnSubmit.addEventListener('click', function (e){
 });
 
 
-// fait disparaître le formualaire au bout de 3s
+// fait disparaître le formulaire au bout de 3s
  function disparition(){setTimeout(() => {
    document.getElementById('formulaire').style.display='none'
     }, 3000); 
