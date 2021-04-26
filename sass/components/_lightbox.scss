@@ -28,7 +28,7 @@
     padding-top: 60px;
     padding-bottom: 60px;
     background-color:white;
-    animation: lightboxIn 0,5s;
+    
 
     img{
         width: 83%;
@@ -36,11 +36,15 @@
        max-width: 100%;
        height:auto;
        object-fit: cover;
-        animation: lightboxIn 0,5s;
+        
     }
 }
 
+.lightbox__container > video{
+width: 83%;
+height: 58%;
 
+}
 .fa-chevron-left, .fa-chevron-right, #close__lightbox{
     position:fixed;
     color:$primarycolor;
@@ -78,13 +82,6 @@ right:10%;
     
     }
 
-    @keyframes lightboxIn{
-        from{opacity: 0;}
-        to{opacity: 1;}
-    }
+    
 
-    video{
-
-        width: 400px;
-        height:300px;
-    }
+   

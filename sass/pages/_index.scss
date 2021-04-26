@@ -43,6 +43,28 @@ h1{
     }
 
 
+.contenu{
+    position: absolute;
+    display: none;
+    width: 180px;
+    height: 25px;
+    background:$secondarycolor;
+    font-size:18px;
+    font-weight: 700;
+    left:50%;
+    top:0;
+    margin-top:3px;
+    color: black;
+    line-height: 23px;
+    border-radius: 5px;
+    text-align: center;
+   
+}
+
+
+
+
+
 
 .main {
     display: grid;

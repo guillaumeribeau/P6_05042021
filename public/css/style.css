@@ -285,7 +285,6 @@ input {
   padding-top: 60px;
   padding-bottom: 60px;
   background-color: white;
-  animation: lightboxIn 0, 5s;
 }
 .lightbox__container img {
   width: 83%;
@@ -293,7 +292,11 @@ input {
   max-width: 100%;
   height: auto;
   object-fit: cover;
-  animation: lightboxIn 0, 5s;
+}
+
+.lightbox__container > video {
+  width: 83%;
+  height: 58%;
 }
 
 .fa-chevron-left, .fa-chevron-right, #close__lightbox {
@@ -322,19 +325,6 @@ input {
 #close__lightbox {
   right: 10%;
   top: 10%;
-}
-
-@keyframes lightboxIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-video {
-  width: 400px;
-  height: 300px;
 }
 
 header {
@@ -370,6 +360,23 @@ header h1 {
   width: 200px;
   height: 50px;
   margin-left: 100px;
+}
+
+.contenu {
+  position: absolute;
+  display: none;
+  width: 180px;
+  height: 25px;
+  background: #DB8876;
+  font-size: 18px;
+  font-weight: 700;
+  left: 50%;
+  top: 0;
+  margin-top: 3px;
+  color: black;
+  line-height: 23px;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .main {

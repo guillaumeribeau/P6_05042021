@@ -56,8 +56,6 @@ static init(){
       }
         
     
-    
-
      // permet de fermer avec la touche echap
      onKeyUp (e){
          if(e.key === 'Escape'){

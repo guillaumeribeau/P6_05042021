@@ -2,35 +2,6 @@
  const urlPara = new URLSearchParams(window.location.search);
  let tagsId = urlPara.get('id');
 
-// fonction qui permet d'afficher la page lors du clic du tags sur la pages photographers
- export function afficheLesTags(photographers) {
-  let photographerCard = photographers.map(photographers=>{
-    let tags = photographers.tags;
-      let tagsArray = tags.map(tags =>   {
-         return `<span class="card__tags">#${tags}</span>`;
-    }).join('');
-      // compares l'id de la page   avec le tableau des tags
-       if(tagsArray.includes(tagsId)){
-        return `
-        <article class="card">
-            <a id="${photographers.id}" class="card__general-link" href="photographer.html?id=${photographers.id}">
-                <img class="card__image" src="./img/portrait/${photographers.portrait}" alt="">
-                <h2 class="card__name">${photographers.name}</h2>
-            </a>
-            <p class="card__location">${photographers.city}, ${photographers.country}</p>
-            <p class="card__tagline">${photographers.tagline}</p>
-            <p class="card__price">${photographers.price}&euro;/jour</p>
-            <div class="card__tags-container">${tagsArray}</div>
-        </article>`;
-
-       }
-  
-})
-main.innerHTML=photographerCard.join('');
- }
-
-
-
 
 // function qui permet de créer photographe page accueil 
 
@@ -55,8 +26,10 @@ export function createPhotographers(photographers) {
         
     </article>`
     }).join('');
-    
+
       main.innerHTML= photographerCard;
+
+   
 };
 
 
@@ -79,7 +52,6 @@ export function filterTags(photographers){
             }).join('');
           let ArrayOfTags = tags.map(element => element);
           
-          
            if (ArrayOfTags.includes(tagsLink)) {
        
             return `
@@ -99,12 +71,59 @@ export function filterTags(photographers){
      
      }).join('');
       main.innerHTML = filteredCard;
-     
-      
-  
-  })
+     })
          
     };
   };
   
 
+
+export function TrierPhotograph(photographers){
+  
+  if (tagsId==undefined){
+createPhotographers(photographers); 
+}
+
+else{
+const filteredCard = photographers.map(photographers => {
+    let tags = photographers.tags;
+    let tagsArray = tags.map(tags => {
+          return `<span class="card__tags">#${tags}</span>`;
+      }).join('');
+    let ArrayOfTags = tags.map(element => element);
+    
+    
+     if (ArrayOfTags.includes(tagsId)) {
+ 
+      return `
+            <article class="card">
+                <a id="${photographers.id}" class="card__general-link" href="photographer.html?id=${photographers.id}">
+                    <img class="card__image" src="./img/portrait/${photographers.portrait}" alt="">
+                    <h2 class="card__name">${photographers.name}</h2>
+                </a>
+                <p class="card__location">${photographers.city}, ${photographers.country}</p>
+                <p class="card__tagline">${photographers.tagline}</p>
+                <p class="card__price">${photographers.price}&euro;/jour</p>
+                <div class="card__tags-container">${tagsArray}</div>
+            </article>`;
+    }
+      
+    }).join('');;
+main.innerHTML = filteredCard;
+}
+  
+}
+
+   
+
+
+
+
+
+
+// passer au contenu 
+const contenu = document.querySelector('.contenu');
+document.addEventListener('scroll',e=>{
+e.preventDefault();
+contenu.style.display='inline-block';
+})

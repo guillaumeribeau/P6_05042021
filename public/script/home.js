@@ -1,4 +1,4 @@
-import {createPhotographers,filterTags,afficheLesTags} from './index.js'
+import {filterTags,TrierPhotograph} from './index.js'
 import {getData} from './getdata.js'
 
 
@@ -10,10 +10,8 @@ function createHomePage(){
         
         getData().then (data =>{
         let photographers = data.photographers;
-       
-        createPhotographers(photographers);
-        filterTags(photographers);
-        window.onload= afficheLesTags(photographers)
+       filterTags(photographers);
+       TrierPhotograph(photographers);
         
 })};
 createHomePage();
