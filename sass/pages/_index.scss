@@ -4,30 +4,32 @@
 header {
     display:flex ;
     justify-content: space-between;
-    align-items: center;
+   //align-items: center;
+    
 
 h1{
 
     font-weight: 400;
     font-size: 36px;
-    line-height: 46,87px;
+    //line-height: 46,87px;
     color: $primarycolor;
+    
 }
 
 }
 
 .header__nav ul {
-    display: flex;
-    flex-direction: row;
+   display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
     list-style: none;
+    margin-top: 40px;
     
 
     li{
-        
         height: 22px;
         padding: 0px 15px 5px 5px;
         border: 0.5px solid #C4C4C4;
-        box-sizing: border-box;
         margin:5px;
         border-radius: 11px;
         color: $primarycolor;
@@ -46,10 +48,11 @@ h1{
    
 }
 
-.logo{
+.logo__accueil{
         width: 200px;
         height:50px;
-        margin-left: 100px;
+        margin-top: 30px;
+       margin-left: 50px;
 
     }
 
@@ -63,6 +66,7 @@ h1{
     font-size:18px;
     font-weight: 700;
     left:50%;
+    transform:translateX(-50%);
     top:0;
     margin-top:3px;
     color: black;
@@ -79,7 +83,8 @@ color: black;
     display: grid;
     grid-template-columns: repeat(3,3fr);
     grid-template-rows: repeat(3,2fr);
-    margin-left:72px;
+    margin-top: 50px;
+ 
 }
 
 .card__photographers{
@@ -150,3 +155,54 @@ border-radius: 50%;
 }
 
 
+
+@media only screen and (max-width:1024px){
+    .main {
+        display: grid;
+        grid-template-columns: repeat(2,2fr);
+        grid-template-rows: repeat(2,2fr);
+       
+    }
+
+}
+
+
+
+
+
+
+@media only screen and (max-width:900px){
+
+header{
+    flex-direction: column;
+    
+        h1{
+            font-size: 14px;
+            position: absolute;
+             right: 20px;
+             top:20px;
+             margin-top: 30px;
+        }
+    
+}
+.logo__accueil{
+width: 150px;
+height:37px;
+margin-left: 20px;
+margin-top: 30px;
+}
+
+.header__nav ul {
+    display: flex;
+     margin-top: 40px;
+   
+
+
+}
+.main {
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: repeat(1,1fr);
+    
+}
+}

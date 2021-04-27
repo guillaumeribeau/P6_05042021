@@ -154,7 +154,6 @@ btnSubmit.addEventListener('click', function(e){
 btnSubmit.addEventListener('keydown', function(e){
 
   if(e.key === 13 ){
-    console.log('coucou')
     envoieFormulaire(e);
   }
 });
