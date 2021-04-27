@@ -102,7 +102,7 @@ function getPhotographerMediaList(ID, baseMediaList){
 
 
     //affiche les medias dans la gallery
-     const image =photographerMediaList.map(media=>{
+     const image = photographerMediaList.map(media=>{
      if (media.hasOwnProperty('video')){
       return ` <figure class='figure'>
       <a href="./img/${photographer.name}/${media.video}">
@@ -164,8 +164,6 @@ function getPhotographerMediaList(ID, baseMediaList){
 
  
 
-
-
 // compteur de likes par medias
 
 function compteurLikes(photographerMediaList){
@@ -224,8 +222,6 @@ return totalInitial;
 
 
 
-
-
 // trie la gallery par likes à l'ouverture de la pages
 
 function trierGalleryLikes(photographerMediaList){
@@ -239,19 +235,20 @@ return popularite;
 
 function trierMedia (photographerIndex,photographerMediaList){
     let inputdrop= document.querySelectorAll('.custom-option');
+   
    // on ecoute le click sur le dropdown
      for (let value of inputdrop){
     value.addEventListener('click',function(e){
-   // si on a correspondance on execute la fonction de tri en adequation
+       // si on a correspondance on execute la fonction de tri en adequation
     let inputValue= value.innerHTML;
     if(inputValue=='Popularité'){
         const popularite= photographerMediaList.sort((a,b) => b.likes- a.likes);
         // on execute la fonction generate profil avec le nouveau tableau filtrer.
-        generateProfile(photographerIndex,popularite)
-        
+       generateProfile(photographerIndex,popularite)
+      
     }
      
-    if(inputValue=='Date'){
+   else if(inputValue=='Date'){
   const date= photographerMediaList.sort((a,b)=>{
   if (a.date<b.date){
     return 1;
@@ -263,7 +260,10 @@ function trierMedia (photographerIndex,photographerMediaList){
     
     
   })
+   
      generateProfile(photographerIndex,date)
+    
+    
     }
 
     if(inputValue=='Titre'){
@@ -279,15 +279,14 @@ function trierMedia (photographerIndex,photographerMediaList){
         else return 0
          
        })
-       generateProfile(photographerIndex,titre)
+       generateProfile(photographerIndex,titre);
+       
+
     }
 
-    })
+})
+}     
 
 }
-
-}
-
-
 
 
