@@ -111,3 +111,12 @@
     left: 5px;
     transform: rotate(45deg);
 }
+
+
+@media only screen and (max-width:900px){
+
+
+.custom-select-wrapper {
+    display: none;
+}
+}   

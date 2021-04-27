@@ -36,6 +36,11 @@ a {
   margin-right: 34px;
 }
 
+@media only screen and (max-width: 900px) {
+  .compteur__likes {
+    display: none;
+  }
+}
 .trier {
   position: absolute;
   top: 15px;
@@ -154,6 +159,11 @@ a {
   transform: rotate(45deg);
 }
 
+@media only screen and (max-width: 900px) {
+  .custom-select-wrapper {
+    display: none;
+  }
+}
 #formulaire {
   display: none;
   justify-content: center;
@@ -505,6 +515,12 @@ a {
   cursor: pointer;
 }
 
+.logo {
+  width: 200px;
+  height: 50px;
+  margin: 25px 0 100px 100px;
+}
+
 #presentation {
   display: flex;
   justify-content: space-between;
@@ -515,10 +531,17 @@ a {
   height: 313px;
 }
 
+.container__presentation {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+
 .texte__presentation {
   display: flex;
   flex-direction: column;
-  padding-left: 50px;
+  align-items: center;
 }
 
 #photo {
@@ -526,6 +549,10 @@ a {
   height: 200px;
   border-radius: 50%;
   margin-right: 50px;
+}
+
+.card__tags {
+  margin-left: 0;
 }
 
 #name {
@@ -571,7 +598,6 @@ a {
   height: 300px;
   margin-bottom: 10px;
   border-radius: 5px;
-  margin-right: 95px;
 }
 
 .video {
@@ -608,6 +634,54 @@ a {
   margin-left: 0;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@media only screen and (max-width: 900px) {
+  .logo {
+    width: 150px;
+    height: 37px;
+    margin-left: 50px;
+    margin-bottom: 0;
+  }
+
+  #photo {
+    width: 100px;
+    height: 100px;
+    margin-right: 0;
+  }
+
+  #contact__me {
+    height: 35px;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 20px;
+  }
+
+  #presentation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 313px;
+    margin-top: -50px;
+  }
+
+  #mediaGallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(1, 1fr);
+    margin-left: 30px;
+  }
+
+  .photo {
+    margin-right: 0px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -7,16 +7,16 @@ a{
     color:#ffff;
     cursor: pointer;
 }
-// //.logo {
-//     width: 200px;
-//     height: 50px;
-//     margin: 25px 0 100px 100px;
-// }
+.logo {
+    width: 200px;
+    height: 50px;
+    margin: 25px 0 100px 100px;
+}
 
 #presentation {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+     align-items: center;
     background-color:#FAFAFA;
     margin-left: 100px;
     margin-right: 100px;
@@ -24,10 +24,19 @@ a{
   
 }
 
+.container__presentation{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 20px;
+   
+}
+
 .texte__presentation {
     display: flex;
     flex-direction: column;
-    padding-left: 50px;
+    align-items: center;
+   // padding-left: 50px;
 }
 #photo {
 width: 200px;
@@ -36,7 +45,9 @@ border-radius: 50%;
 margin-right: 50px;
 
 }
-
+.card__tags{
+    margin-left: 0;
+}
 
 #name{
     color:$secondarycolor;
@@ -44,6 +55,7 @@ margin-right: 50px;
     line-height: 47px;
 }
 #city, #country{
+   
     color:$primarycolor;
     font-size:13px;
     line-height:17px;
@@ -84,7 +96,7 @@ margin-right: 50px;
     height:300px;
     margin-bottom:10px ;
     border-radius: 5px;
-    margin-right: 95px;
+   // margin-right: 95px;
 }
 
 .video {
@@ -131,6 +143,52 @@ width: 350px;
 
 
 
+@media only screen and (max-width:900px){
 
+.logo{
+width: 150px;
+height: 37px;
+margin-left:50px;
+margin-bottom: 0;
+}
+
+#photo {
+width: 100px;
+height: 100px;
+margin-right:0;
+}
+
+#contact__me {
+
+height: 35px;
+position:fixed;
+bottom: 0;
+left:50%;
+transform: translateX(-50%);
+margin-bottom: 20px;
+}  
+#presentation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:transparent;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 313px;
+    margin-top: -50px;
+  
+}
+#mediaGallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(1,1fr);
+    margin-left: 30px;
+    }
+.photo{
+margin-right: 0px;
+}
+}
 
 
