@@ -229,8 +229,18 @@ return totalInitial;
 const wrapperDrop =document.querySelector('.custom-select-wrapper')
    wrapperDrop.addEventListener('click', function() { 
     this.querySelector('.custom-select').classList.toggle('open');
-    
     })
+
+    wrapperDrop.addEventListener('keydown', function(e) { 
+        if(e.key=='ArrowDown'){
+      this.querySelector('.custom-select').classList.add('open');
+    }
+    if(e.key=='ArrowUp'){
+        this.querySelector('.custom-select').classList.remove('open');
+      }
+    })
+    
+
 
  for (const option of document.querySelectorAll(".custom-option")) {
     option.addEventListener('click', function() {
@@ -243,6 +253,12 @@ const wrapperDrop =document.querySelector('.custom-select-wrapper')
            }
      })
  }
+
+
+
+
+
+
 
 
 

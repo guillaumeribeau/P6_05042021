@@ -39,7 +39,7 @@ e.preventDefault();
 main.setAttribute('aria-hidden', 'true');
 forms.setAttribute('aria-hidden','false')
 forms.style.display='flex';
-btnClose.focus();
+inputLast.focus();
 
 })
 
@@ -49,10 +49,18 @@ btnClose.addEventListener('click', e=>{
 e.preventDefault();
 main.setAttribute('aria-hidden', 'false');
 forms.setAttribute('aria-hidden','true')
-
 forms.style.display='none';
 
 })
+//ferme formulaire avec echap
+document.addEventListener('keydown', e=>{
+  if(e.key === 'Escape'){
+  main.setAttribute('aria-hidden', 'false');
+  forms.setAttribute('aria-hidden','true')
+  forms.style.display='none';
+  }
+  })  
+
 
 
 
@@ -113,8 +121,6 @@ function validation(){
 
 
 
-
-
 // fonction qui affiche les valeurs input dans la console
 function afficherInput (){
   inputAll.forEach(item=>{
@@ -126,7 +132,38 @@ function afficherInput (){
 
 // ecoute et envoie du formulaire si tout est ok
 
-btnSubmit.addEventListener('click', function (e){
+// btnSubmit.addEventListener('click', function (e){
+//  e.preventDefault();
+//   afficherInput();
+//   validation();
+//    if (count==0){
+//    const messageConfirmation = document.getElementById('message__confirmation');
+//    messageConfirmation.style.display='inline-block' 
+//    document.getElementById('forms').reset();
+//     disparition();
+  
+//   }
+
+// });
+
+
+btnSubmit.addEventListener('click', function(e){
+  envoieFormulaire(e)
+});
+
+btnSubmit.addEventListener('keydown', function(e){
+
+  if(e.key === 13 ){
+    console.log('coucou')
+    envoieFormulaire(e);
+  }
+});
+
+
+
+// ecoute et envoie du formulaire si tout est ok
+
+function envoieFormulaire(e){
  e.preventDefault();
   afficherInput();
   validation();
@@ -138,7 +175,9 @@ btnSubmit.addEventListener('click', function (e){
   
   }
 
-});
+}
+
+
 
 
 // fait disparaître le formulaire au bout de 3s
