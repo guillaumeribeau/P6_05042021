@@ -41,7 +41,7 @@
  </div>
 
 
-        <div id='contact__me'><a role='button' aria-haspopup='dialog' href="">Contactez-moi</a></div>
+        <div id='contact__me'><a role="button" aria-haspopup="dialog" aria-controls="dialog" href="">Contactez-moi</a></div>
 
     </article>
 
@@ -79,10 +79,10 @@
 
     <form id='forms' action="/ma-page-de-traitement" method="post" role='dialog' tabindex="-1">
   
-  <div role="group" aria-labelledby="vos coordonnées">
+<div role="group" aria-labelledby="vos coordonnées">
      <div class='title__form'>
         <span id='name__form'></span> 
-      <a tabindex='0' href=""><i id='close' class="fas fa-times"></i></a>
+      <button type='button' aria-label="fermer" title="fermer le formulaire" data-dismiss="dialog"><i id='close' class="fas fa-times"></i></button>
      </div>
   
      <div class='forms__groups'>
@@ -102,7 +102,7 @@
           <input type="email" id="mail__forms" name="user_mail">
       </div>
             <span class='error' id='errorMail'></span>
-  </div>
+</div>
       <div class='forms__groups'>
           <label for="msg ">Votre message</label>
           <textarea id="msg" name="user_message"></textarea>
@@ -111,7 +111,7 @@
       <span class='error' id='errorMessage'></span>
   
       <div class="button">
-         <a href=""> <button id='btn__submit' type="submit">Envoyer</button></a>
+         <button id='btn__submit' type="submit">Envoyer</button>
          <span id="message__confirmation">Votre message a bien été reçu ! Merci</span>
       </div>
   

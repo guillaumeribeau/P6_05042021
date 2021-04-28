@@ -130,33 +130,21 @@ function afficherInput (){
   })
   };
 
-// ecoute et envoie du formulaire si tout est ok
-
-// btnSubmit.addEventListener('click', function (e){
-//  e.preventDefault();
-//   afficherInput();
-//   validation();
-//    if (count==0){
-//    const messageConfirmation = document.getElementById('message__confirmation');
-//    messageConfirmation.style.display='inline-block' 
-//    document.getElementById('forms').reset();
-//     disparition();
-  
-//   }
-
-// });
 
 
 btnSubmit.addEventListener('click', function(e){
   envoieFormulaire(e)
 });
 
-btnSubmit.addEventListener('keydown', function(e){
+btnSubmit.addEventListener('keydown', (e)=> {
 
-  if(e.key === 13 ){
-    envoieFormulaire(e);
-  }
-});
+  if(e.key === 'Enter'){
+    envoieFormulaire(e)
+    }
+})   
+
+  
+
 
 
 
