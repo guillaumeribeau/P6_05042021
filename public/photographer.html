@@ -48,19 +48,21 @@
 
     <!-- dropdown-->
     
-<div class="custom-select-wrapper" role='button' tabindex="0">
+<div class="custom-select-wrapper" role='button' tabindex="0" aria-hidden="true">
     <div class="custom-select">
+        <!-- <button aria-labelledby='listboxlabel' id='select' class="custom-select-button" role='button' aria-haspopup='listbox' aria-activedescendant='listbox' aria-expanded='false'></button> -->
             <div class="custom-select__trigger"><span>Popularité</span>
               <div class="arrow"></div>
             </div>
 
             <div class="custom-options" >
-                <span   tabindex="0" class="custom-option selected" data-value="popularité">Popularité</span>   
-                <span   tabindex="0" class="custom-option " data-value="date">Date</span>
-                <span   tabindex="0" class="custom-option" data-value="titre">Titre</span>
-            </div>
+                <span  tabindex="0"  role="option" class="custom-option selected" aria-label="popularité">Popularité</span>  
+                <span   tabindex="0" role="option" class="custom-option " aria-label="date">Date</span>
+                <span   tabindex="0" role= "option" class="custom-option" aria-label="titre">Titre</span>
+         </div>
+        <!-- </button> -->
     </div>  
-        <label role='option' class='trier'>Trier par</label>
+        <label role='option' for='select' class='trier'>Trier par</label>
 </div>
 
 

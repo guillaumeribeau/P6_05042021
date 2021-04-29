@@ -1,4 +1,6 @@
 //dropdown
+// const customSelectWrapper = document.querySelector('.custom-select');
+// const customSelect = document.querySelector('.custom-select-button');
 
 // permet d'ouvrir le menu en ajoutant la classe Open
 const wrapperDrop =document.querySelector('.custom-select-wrapper')
@@ -14,6 +16,20 @@ const wrapperDrop =document.querySelector('.custom-select-wrapper')
       }
     })
     
+
+
+    // customSelectWrapper.addEventListener('click', function () {
+    //   customSelect.classList.toggle('open');
+      
+    //   const expanded = document.querySelector('#select').getAttribute('aria-expanded');
+    //   if (expanded == 'false') {
+    //     document.querySelector('#select').setAttribute('aria-expanded', 'true');
+    //   } else {
+    //     document.querySelector('#select').setAttribute('aria-expanded', 'false');
+    //   }
+    // });
+
+
 
 
  for (const option of document.querySelectorAll(".custom-option")) {

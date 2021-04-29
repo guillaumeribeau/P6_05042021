@@ -29,8 +29,9 @@ function createPhotographersPage(){
    //permet de trier par popularité au chargement de la page
     trierGalleryLikes(photographerMediaList);
    // trie les medias en fonction du filtres du dropdown
-    trierMedia(photographerIndex,photographerMediaList);
     generateProfile(photographerIndex,photographerMediaList);
+    trierMedia(photographerIndex,photographerMediaList);
+   
     // class lightbox qui s'initialise
     Lightbox.init();
     
@@ -102,6 +103,8 @@ function getPhotographerMediaList(ID, baseMediaList){
 
 
     //affiche les medias dans la gallery
+
+   
      const image = photographerMediaList.map(media=>{
      if (media.hasOwnProperty('video')){
       return ` <figure class='figure'>
@@ -142,8 +145,8 @@ function getPhotographerMediaList(ID, baseMediaList){
     }
 
     }).join('');
-
-     
+   
+       
     // injectes le Html dans la section gallery
     mediaGallery.innerHTML= image;
 
@@ -158,7 +161,7 @@ function getPhotographerMediaList(ID, baseMediaList){
     
     // compteur like des medias
     compteurLikes(photographerMediaList);
- 
+
     
 }
 
@@ -231,7 +234,6 @@ return popularite;
 }
 
 
-// fonction qui trie les medias 
 
 function trierMedia (photographerIndex,photographerMediaList){
     let inputdrop= document.querySelectorAll('.custom-option');
@@ -243,9 +245,8 @@ function trierMedia (photographerIndex,photographerMediaList){
     let inputValue= value.innerHTML;
     if(inputValue=='Popularité'){
         const popularite= photographerMediaList.sort((a,b) => b.likes- a.likes);
-        // on execute la fonction generate profil avec le nouveau tableau filtrer.
-       generateProfile(photographerIndex,popularite)
-      
+      //on execute la fonction generate profil avec le nouveau tableau filtrer.
+     
     }
      
    else if(inputValue=='Date'){
@@ -260,9 +261,9 @@ function trierMedia (photographerIndex,photographerMediaList){
     
     
   })
-   
+  
      generateProfile(photographerIndex,date)
-    
+  
     
     }
 
@@ -288,5 +289,4 @@ function trierMedia (photographerIndex,photographerMediaList){
 }     
 
 }
-
 
