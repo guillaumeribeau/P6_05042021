@@ -242,9 +242,11 @@ function trierMedia (photographerIndex,photographerMediaList){
     if(inputValue=='Popularité'){
         const popularite= photographerMediaList.sort((a,b) => b.likes- a.likes);
       //on execute la fonction generate profil avec le nouveau tableau filtrer.
-     
+      generateProfile(photographerIndex,popularite)
+      
     }
      
+
    else if(inputValue=='Date'){
   const date= photographerMediaList.sort((a,b)=>{
   if (a.date<b.date){

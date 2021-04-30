@@ -145,9 +145,6 @@ btnSubmit.addEventListener('keydown', (e)=> {
 
   
 
-
-
-
 // ecoute et envoie du formulaire si tout est ok
 
 function envoieFormulaire(e){
@@ -159,7 +156,6 @@ function envoieFormulaire(e){
    messageConfirmation.style.display='inline-block' 
    document.getElementById('forms').reset();
     disparition();
-  
   }
 
 }
