@@ -110,9 +110,9 @@ prev(e){
        dom.classList.add('lightbox');
        dom.innerHTML=`
         
-       <span class='lightbox__close'><i id='close__lightbox'class="fas fa-times"></i></span>
-       <span class='lightbox__prev'><i class="fas fa-chevron-left"></i></span>
-       <span class='lightbox__next'><i class="fas fa-chevron-right"></i></span>
+       <span class='lightbox__close' aria-label='fermer la lightbox'><i id='close__lightbox'class="fas fa-times"></i></span>
+       <span class='lightbox__prev' aria-label='image suivante'><i class="fas fa-chevron-left"></i></span>
+       <span class='lightbox__next' aria-label='image precedente'><i class="fas fa-chevron-right"></i></span>
         <div class="lightbox__container"> 
         
         </div>`

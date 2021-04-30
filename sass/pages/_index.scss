@@ -18,7 +18,7 @@ h1{
 
 }
 
-.header__nav ul {
+.header__nav nav{
    display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -26,7 +26,7 @@ h1{
     margin-top: 40px;
     
 
-    li{
+    a{
         height: 22px;
         padding: 0px 15px 5px 5px;
         border: 0.5px solid #C4C4C4;

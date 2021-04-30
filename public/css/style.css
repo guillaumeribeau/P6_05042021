@@ -7,6 +7,15 @@ a {
   text-decoration: none;
 }
 
+*:focus {
+  outline: 2px solid #d3573c;
+}
+
+::selection {
+  background-color: #d3573c;
+  color: #000000;
+}
+
 .compteur__likes {
   position: fixed;
   display: flex;
@@ -41,6 +50,11 @@ a {
     display: none;
   }
 }
+#select {
+  background-color: transparent;
+  border: none;
+}
+
 .trier {
   position: absolute;
   top: 15px;
@@ -354,14 +368,14 @@ header h1 {
   color: #901C1C;
 }
 
-.header__nav ul {
+.header__nav nav {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   list-style: none;
   margin-top: 40px;
 }
-.header__nav ul li {
+.header__nav nav a {
   height: 22px;
   padding: 0px 15px 5px 5px;
   border: 0.5px solid #C4C4C4;
@@ -372,10 +386,10 @@ header h1 {
   font-weight: 500;
   cursor: pointer;
 }
-.header__nav ul li:hover {
+.header__nav nav a:hover {
   background-color: #DB8876;
 }
-.header__nav ul li:focus {
+.header__nav nav a:focus {
   background-color: #DB8876;
 }
 
@@ -581,6 +595,7 @@ a {
 }
 
 #contact__me {
+  border: none;
   width: 170px;
   height: 69px;
   border-radius: 5px;
@@ -592,6 +607,8 @@ a {
   color: #FFFF;
   font-weight: 700;
   font-size: 20px;
+  border: none;
+  cursor: pointer;
 }
 
 #mediaGallery {
@@ -620,6 +637,13 @@ a {
   margin-left: 6px;
   font-size: 20px;
   cursor: pointer;
+}
+
+.jaime {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
 }
 
 .photo__figcaption {

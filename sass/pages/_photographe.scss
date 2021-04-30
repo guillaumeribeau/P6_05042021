@@ -69,6 +69,7 @@ margin-right: 50px;
 
 
 #contact__me {
+    border:none;
     width: 170px;
     height: 69px;
     border-radius:5px;
@@ -80,6 +81,8 @@ margin-right: 50px;
     color:#FFFF;
    font-weight: 700;
    font-size: 20px;
+   border:none;
+   cursor: pointer;
 }  
 
 
@@ -106,6 +109,8 @@ margin-right: 50px;
     height:300px;
     border-radius: 5px;
 }
+
+
 .fa-heart {
     color: $primarycolor;
     margin-left: 6px;
@@ -114,8 +119,12 @@ margin-right: 50px;
 
 }
 
-
-
+.jaime{
+    border:none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+}
 .photo__figcaption{
 display: flex;
 justify-content: space-between;

@@ -99,7 +99,7 @@ function getPhotographerMediaList(ID, baseMediaList){
     let createImg = document.createElement('div');
     let article = document.getElementById('presentation')
     article.appendChild(createImg);
-    createImg.innerHTML =`<img id="photo" src="./img/portrait/${photographer.portrait}" alt="">`
+    createImg.innerHTML =`<img id="photo" src="./img/portrait/${photographer.portrait}" alt="${photographer.name}">`
 
 
     //affiche les medias dans la gallery
@@ -109,12 +109,12 @@ function getPhotographerMediaList(ID, baseMediaList){
      if (media.hasOwnProperty('video')){
       return ` <figure class='figure'>
       <a href="./img/${photographer.name}/${media.video}">
-      <video alt='${media.alt}' class='video' type="video/mp4" src="./img/${photographer.name}/${media.video}"></video> 
+      <video alt='${media.alt}' class='video' type="video/mp4" src="./img/${photographer.name}/${media.video}" aria-label="cliquez pour agrandir"></video> 
       </a>
       <figcaption class='photo__figcaption'>  
       <span class='description__photo'>${media.alt}</span>
       <span class='photo__price'>${media.price}€</span>
-      <span class='likes'>${media.likes}  </span><i class="fas fa-heart"></i>
+      <button class='jaime' aria-label='je likes la photo'><span class='likes'>${media.likes}</span><i class="fas fa-heart"></i></button>
       </figcatption>
      </figure>
      
@@ -132,12 +132,12 @@ function getPhotographerMediaList(ID, baseMediaList){
         return `
      <figure class='figure'>
      <a href="./img/${photographer.name}/${media.image}">
-     <img alt='${media.alt}' class='photo' src="./img/${photographer.name}/${media.image}"> 
+     <img alt='${media.alt}' class='photo' src="./img/${photographer.name}/${media.image}" aria-label="cliquez pour agrandir"> 
      </a>
      <figcaption class='photo__figcaption'>
      <span class='description__photo'>${media.alt}</span>
      <span class='photo__price'>${media.price}€</span>
-     <span class='likes'>${media.likes}  </span><i class="fas fa-heart"></i>
+     <button class='jaime' aria-label='je likes la photo'><span class='likes'>${media.likes}</span><i class="fas fa-heart"></i></button>
      </figcatption>
 
      </figure>
@@ -176,7 +176,8 @@ function compteurLikes(photographerMediaList){
     
     
     // selectionne tous les coeurs
-    const allLikes= document.querySelectorAll('figure i');
+    const allLikes= document.querySelectorAll('button i');
+    console.log(allLikes)
     
     
    
