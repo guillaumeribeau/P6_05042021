@@ -65,7 +65,7 @@ static init(){
              this.prev(e)
          }
          else if (e.key === 'ArrowRight'){
-             this.next
+             this.next(e)
          }
      }
 

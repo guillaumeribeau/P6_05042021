@@ -8,13 +8,13 @@ a {
     
 }
 
-*:focus{
-    outline: 2px solid #d3573c;
-}
+ *:focus{
+     outline: 2px solid #d3573c;
+ }
 
 
 
-::selection{
+ ::selection{
     background-color: #d3573c;
-    color: #000000;
-}
+     color: #000000;
+ }

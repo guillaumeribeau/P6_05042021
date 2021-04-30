@@ -176,7 +176,7 @@ function compteurLikes(photographerMediaList){
     
     
     // selectionne tous les coeurs
-    const allLikes= document.querySelectorAll('button i');
+    const allLikes= document.querySelectorAll('figure button');
     console.log(allLikes)
     
     
@@ -210,18 +210,13 @@ function compteurLikes(photographerMediaList){
 //function qui retourne tous le nombre de coeur total initial
 function compteurTotal(photographerMediaList){
 const totalLikes= document.querySelector('.numbers_likes')
-      
       const totalInitial = photographerMediaList.reduce((total,like)=>{
        return total + (like.likes);
-
-
     },0)
 
 
 totalLikes.innerHTML=totalInitial;
 return totalInitial;
-
-
 }
 
 
