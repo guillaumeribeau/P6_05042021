@@ -41,7 +41,7 @@
  </div>
 
 
-        <button id='contact__me' aria-haspopup="dialog" aria-controls="dialog" aria-label='contactez-moi'>Contactez-moi</button>
+        <button id='contact__me' aria-haspopup="dialog" aria-label='contactez-moi'>Contactez-moi</button>
 
     </article>
 
@@ -51,19 +51,19 @@
 <div class="custom-select-wrapper">
    
     <div class="custom-select">
-        <button aria-labelledby='listboxlabel' id='select' class="custom-select-button" role='button' aria-haspopup='listbox' aria-activedescendant='listbox' aria-expanded='false'></button>
+        <button id='select' class="custom-select-button" aria-haspopup='listbox' aria-expanded='false'></button>
             <div class="custom-select__trigger" aria-selected="true"><span>Popularité</span>
               <div class="arrow"></div>
             </div>
 
             <div class="custom-options" role='listbox'>
-                    <button   role="option" class="custom-option selected" aria-label="popularité">Popularité</button>
-                    <button  role="option" class="custom-option " aria-label="date">Date</button>
-                    <button   role= "option" class="custom-option" aria-label="titre">Titre</button>
+                    <button class="custom-option selected" aria-label="popularité">Popularité</button>
+                    <button class="custom-option" aria-label="date">Date</button>
+                    <button class="custom-option" aria-label="titre">Titre</button>
          </div>
-    </button>
+    
     </div>  
-        <label role='option' for='select' class='trier'>Trier par</label>
+        <label for='select' class='trier'>Trier par</label>
 </div>
 
 
@@ -80,9 +80,9 @@
 <!--formulaire de contact-->
 <div id="formulaire" role="dialog" aria-hidden="true" tabindex="-1">
 
-    <form id='forms' action="/ma-page-de-traitement" method="post" role='dialog' tabindex="-1">
+    <form id='forms' action="/ma-page-de-traitement" method="post" tabindex="-1">
   
-<div role="group" aria-labelledby="vos coordonnées">
+<div role="group" >
      <div class='title__form'>
         <span id='name__form'></span> 
       <button type='button' aria-label="fermer" title="fermer le formulaire" data-dismiss="dialog"><i id='close' class="fas fa-times"></i></button>
@@ -90,25 +90,25 @@
   
      <div class='forms__groups'>
           <label for="lastname__forms">Prénom</label>
-          <input type="text" id="lastname__forms" name="user_name">
+          <input type="text" id="lastname__forms" name="user_name" aria-label='rentrer votre prénom'>
     </div>
              <span class='error' id='errorLast'></span>
   
      <div class='forms__groups'>
       <label for="name__forms">Nom</label>
-      <input type="text" id="name__forms" name="user_name">
+      <input type="text" id="name__forms" name="user_name" aria-label="rentrer votre nom">
     </div>
               <span class='error' id='errorFirst'></span>
   
       <div class='forms__groups'>
           <label for="mail__forms">Email</label>
-          <input type="email" id="mail__forms" name="user_mail">
+          <input type="email" id="mail__forms" name="user_mail" aria-label="rentrer votre mail">
       </div>
             <span class='error' id='errorMail'></span>
 </div>
       <div class='forms__groups'>
-          <label for="msg ">Votre message</label>
-          <textarea id="msg" name="user_message"></textarea>
+          <label for="msg">Votre message</label>
+          <textarea id="msg" name="user_message" aria-label="saisir votre message"></textarea>
       </div>
   
       <span class='error' id='errorMessage'></span>
