@@ -15,7 +15,7 @@ export function createPhotographers(photographers) {
         
     return`<article class= card__photographers>
       <a id= '${photographers.id}' class= card__link href="photographer.html?id=${photographers.id}" aria-label='${photographers.name}'> 
-          <img class='card__image' src="img/portrait/${photographers.portrait}" alt="">
+          <img class='card__image' src="img/portrait/${photographers.portrait}" alt="${photographers.name}">
           <h2 class='card__name'>${photographers.name}</h2>
        </a>
        
@@ -33,8 +33,7 @@ export function createPhotographers(photographers) {
 };
 
 
-
-// function qui filtre les tags
+// function qui filtre les photographe par le tags
 export function filterTags(photographers){
   const navLinks =document.querySelectorAll('.tags');
  
@@ -57,7 +56,7 @@ export function filterTags(photographers){
             return `
                   <article class="card">
                       <a id="${photographers.id}" class="card__general-link" href="photographer.html?id=${photographers.id}">
-                          <img class="card__image" src="./img/portrait/${photographers.portrait}" alt="">
+                          <img class="card__image" src="./img/portrait/${photographers.portrait}" alt="${photographers.name}">
                           <h2 class="card__name">${photographers.name}</h2>
                       </a>
                       <p class="card__location">${photographers.city}, ${photographers.country}</p>
@@ -77,7 +76,7 @@ export function filterTags(photographers){
   };
   
 
-
+//fonction de filtres par rapport au tags de la page photographes
 export function TrierPhotograph(photographers){
   
   if (tagsId==undefined){
@@ -98,7 +97,7 @@ const filteredCard = photographers.map(photographers => {
       return `
             <article class="card">
                 <a id="${photographers.id}" class="card__general-link" href="photographer.html?id=${photographers.id}">
-                    <img class="card__image" src="./img/portrait/${photographers.portrait}" alt="">
+                    <img class="card__image" src="./img/portrait/${photographers.portrait}" alt="${photographers.name}">
                     <h2 class="card__name">${photographers.name}</h2>
                 </a>
                 <p class="card__location">${photographers.city}, ${photographers.country}</p>
@@ -115,12 +114,6 @@ main.innerHTML = filteredCard;
 }
 
    
-
-
-
-
-
-
 // passer au contenu 
 const contenu = document.querySelector('.contenu');
 document.addEventListener('scroll',e=>{

@@ -2,13 +2,13 @@
 
 // formulaire de contact 
 #formulaire{
-    display: none;
-    justify-content: center;
-    align-items: center;
-    top:0px;
-    position:fixed;
-     width: 100%;
-     height: 100%;
+display: none;
+justify-content: center;
+align-items: center;
+top:0px;
+position:fixed;
+    width: 100%;
+    height: 100%;
 z-index: 100;
 background:rgba(196, 196, 196, 0.4);
 }
@@ -57,9 +57,9 @@ margin-left: 35px;
 }
 
 .forms__groups{
-    display: flex;
-    flex-direction: column;
-    margin-left: 35px;
+display: flex;
+flex-direction: column;
+margin-left: 35px;
 }
 label{
 font-size: 36px;
@@ -117,13 +117,13 @@ cursor: pointer;
 
 @media only screen and (max-width:900px){
 
-    #forms{
-        
-        height: 100%;
-        width: 100%;
-      
-        
-        }
+#forms{
+    
+    height: 100%;
+    width: 100%;
+    
+    
+    }
 
 
 }

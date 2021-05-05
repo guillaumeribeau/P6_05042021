@@ -28,15 +28,17 @@ function createPhotographersPage(){
     const photographerMediaList = getPhotographerMediaList(photographerID, mediaList);
    //permet de trier par popularité au chargement de la page
     trierGalleryLikes(photographerMediaList);
-   // trie les medias en fonction du filtres du dropdown
+    gallery
+    // genere le profil du photographe
     generateProfile(photographerIndex,photographerMediaList);
-    trierMedia(photographerIndex,photographerMediaList);
-   
+    // génére la gallery médias
+    gallery(photographerMediaList,photographerIndex)
+     // trie les medias en fonction du filtres du dropdown
+    trierMedia(photographerMediaList,photographerIndex);
+    
     // class lightbox qui s'initialise
     Lightbox.init();
-    
-   
-   
+
 })};
 
 createPhotographersPage();
@@ -101,71 +103,147 @@ function getPhotographerMediaList(ID, baseMediaList){
     article.appendChild(createImg);
     createImg.innerHTML =`<img id="photo" src="./img/portrait/${photographer.portrait}" alt="${photographer.name}">`
 
+}
 
-    //affiche les medias dans la gallery
 
-   
-     const image = photographerMediaList.map(media=>{
-     if (media.hasOwnProperty('video')){
-      return ` <figure class='figure'>
-      <a href="./img/${photographer.name}/${media.video}">
-      <video alt='${media.alt}' class='video' type="video/mp4" src="./img/${photographer.name}/${media.video}" aria-label="cliquez pour agrandir ${media.alt}"></video> 
-      </a>
-      <figcaption class='photo__figcaption'>  
-      <span class='description__photo'>${media.alt}</span>
-      <span class='photo__price'>${media.price}€</span>
-      <button class='jaime' aria-label='je likes la photo'><span class='likes'>${media.likes}</span><i class="fas fa-heart"></i></button>
-      </figcatption>
-     </figure>
-     
-     <div class='compteur__likes'>
-    
-    <span class='numbers_likes'></span>
-    <i id='compteur__heart' class="fas fa-heart"></i>
-    <span class='price__jour'></span>
-    </div>`
+function gallery(photographerMediaList,photographerIndex){
+    let photographer = photographerIndex[0];
 
-     }
-     
-     else{
 
-        return `
-     <figure class='figure'>
-     <a href="./img/${photographer.name}/${media.image}">
-     <img alt='${media.alt}' class='photo' src="./img/${photographer.name}/${media.image}" aria-label="cliquez pour agrandir ${media.alt}"> 
+
+let image = photographerMediaList.map(media=>{
+    if (media.hasOwnProperty('video')){
+     return ` <figure class='figure'>
+     <a href="./img/${photographer.name}/${media.video}">
+     <video alt='${media.alt}' class='video' type="video/mp4" src="./img/${photographer.name}/${media.video}" aria-label="cliquez pour agrandir ${media.alt}"></video> 
      </a>
-     <figcaption class='photo__figcaption'>
+     <figcaption class='photo__figcaption'>  
      <span class='description__photo'>${media.alt}</span>
      <span class='photo__price'>${media.price}€</span>
      <button class='jaime' aria-label='je likes la photo'><span class='likes'>${media.likes}</span><i class="fas fa-heart"></i></button>
      </figcatption>
-
-     </figure>
-     `
-    }
-
-    }).join('');
+    </figure>
+    
+    <div class='compteur__likes'>
    
-       
-    // injectes le Html dans la section gallery
-    mediaGallery.innerHTML= image;
+   <span class='numbers_likes'></span>
+   <i id='compteur__heart' class="fas fa-heart"></i>
+   <span class='price__jour'></span>
+   </div>`
 
-    // injectes le nom dans le formulaire de contact
-    const formsName= document.getElementById('name__form');
-    formsName.innerHTML=`Contactez-moi <br>${photographer.name}`
+    }
     
-    // injectes le prix par jour dans le html
-    const totalLikes= document.querySelector('.price__jour');
-    totalLikes.innerText=`${photographer.price}€/jour`
+    else{
 
-    
-    // compteur like des medias
-    compteurLikes(photographerMediaList);
+       return `
+    <figure class='figure'>
+    <a href="./img/${photographer.name}/${media.image}">
+    <img alt='${media.alt}' class='photo' src="./img/${photographer.name}/${media.image}" aria-label="cliquez pour agrandir ${media.alt}"> 
+    </a>
+    <figcaption class='photo__figcaption'>
+    <span class='description__photo'>${media.alt}</span>
+    <span class='photo__price'>${media.price}€</span>
+    <button class='jaime' aria-label='je likes la photo'><span class='likes'>${media.likes}</span><i class="fas fa-heart"></i></button>
+    </figcatption>
 
-    
+    </figure>
+    `
+   }
+
+   }).join('');
+  
+      
+   // injectes le Html dans la section gallery
+   mediaGallery.innerHTML= image;
+
+   // injectes le nom dans le formulaire de contact
+   const formsName= document.getElementById('name__form');
+   formsName.innerHTML=`Contactez-moi <br>${photographer.name}`
+   
+   // injectes le prix par jour dans le html
+   const totalLikes= document.querySelector('.price__jour');
+   totalLikes.innerText=`${photographer.price}€/jour`
+
+   
+   // compteur like des medias
+   compteurLikes(photographerMediaList);
+
 }
 
- 
+
+
+ // trie la gallery par likes à l'ouverture de la pages
+
+function trierGalleryLikes(photographerMediaList){
+    const popularite= photographerMediaList.sort((a,b) => b.likes- a.likes);
+   
+   return popularite;
+   }
+   
+   
+   // trier les medias par titre, date ou popularité
+   function trierMedia (photographerMediaList,photographerIndex){
+       let inputdrop= document.querySelectorAll('.custom-option');
+      
+      // on ecoute le click sur le dropdown
+        for (let value of inputdrop){
+       value.addEventListener('click',function(e){
+          // si on a correspondance on execute la fonction de tri en adequation
+       let inputValue= value.innerHTML;
+       if(inputValue=='Popularité'){
+           const popularite= photographerMediaList.sort((a,b) => b.likes- a.likes);
+         //on execute la fonction generate profil avec le nouveau tableau filtrer.
+         gallery(popularite,photographerIndex)
+         
+       }
+        
+     else if(inputValue=='Date'){
+     const date= photographerMediaList.sort((a,b)=>{
+     if (a.date<b.date){
+       return 1;
+       }
+       else if (a.date>b.date){
+           return -1;
+       }
+       else return 0;
+       
+       
+     })
+     
+        gallery(date,photographerIndex)
+     
+       
+       }
+   
+       if(inputValue=='Titre'){
+       const titre= photographerMediaList.sort((a,b)=> {
+         
+           if(a.alt<b.alt){
+                return -1;
+           }
+                else if (a.alt>b.alt){
+               return 1;
+           }
+        
+           else return 0
+            
+          })
+          gallery(titre,photographerIndex);
+          
+   
+       }
+   
+   })
+   }     
+   
+   }
+   
+   
+
+
+
+
+
 
 // compteur de likes par medias
 
@@ -220,71 +298,4 @@ return totalInitial;
 }
 
 
-
-// trie la gallery par likes à l'ouverture de la pages
-
-function trierGalleryLikes(photographerMediaList){
- const popularite= photographerMediaList.sort((a,b) => b.likes- a.likes);
-
-return popularite;
-}
-
-
-
-function trierMedia (photographerIndex,photographerMediaList){
-    let inputdrop= document.querySelectorAll('.custom-option');
-   
-   // on ecoute le click sur le dropdown
-     for (let value of inputdrop){
-    value.addEventListener('click',function(e){
-       // si on a correspondance on execute la fonction de tri en adequation
-    let inputValue= value.innerHTML;
-    if(inputValue=='Popularité'){
-        const popularite= photographerMediaList.sort((a,b) => b.likes- a.likes);
-      //on execute la fonction generate profil avec le nouveau tableau filtrer.
-      generateProfile(photographerIndex,popularite)
-      
-    }
-     
-
-   else if(inputValue=='Date'){
-  const date= photographerMediaList.sort((a,b)=>{
-  if (a.date<b.date){
-    return 1;
-    }
-    else if (a.date>b.date){
-        return -1;
-    }
-    else return 0;
-    
-    
-  })
-  
-     generateProfile(photographerIndex,date)
-  
-    
-    }
-
-    if(inputValue=='Titre'){
-    const titre= photographerMediaList.sort((a,b)=> {
-      
-        if(a.alt<b.alt){
-             return -1;
-        }
-             else if (a.alt>b.alt){
-            return 1;
-        }
-     
-        else return 0
-         
-       })
-       generateProfile(photographerIndex,titre);
-       
-
-    }
-
-})
-}     
-
-}
 

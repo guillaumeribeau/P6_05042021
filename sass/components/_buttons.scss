@@ -1,17 +1,17 @@
 // compteur de likes
 
 .compteur__likes {
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 376px;
-    height: 89px;
-    background-color: $secondarycolor;
-    bottom: 10px;
-    right:3%;
-    border-radius: 5px;
-    font-size: 24px;
+position: fixed;
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 376px;
+height: 89px;
+background-color: $secondarycolor;
+bottom: 10px;
+right:3%;
+border-radius: 5px;
+font-size: 24px;
 }
 
 #compteur__heart{
@@ -25,14 +25,14 @@ margin-left: 31px;
 }
 
 .price__jour{
-    margin-left:67px;
-    margin-right: 34px;
+margin-left:67px;
+margin-right: 34px;
 
 }
 
 @media only screen and (max-width:900px){
 .compteur__likes{
-   display: none;
+display: none;
 }
 
 

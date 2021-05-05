@@ -2,127 +2,127 @@
 // dropdown 
 
 button{
-    background-color: transparent;
-    border: none;
-    width: 170px;
-    text-align: left ;
+background-color: transparent;
+border: none;
+width: 170px;
+text-align: left ;
 }
 
 
 #select{
-    background-color: transparent;
-    border:none;
+background-color: transparent;
+border:none;
 }
 
 .trier {
-    position:absolute;
-    top:15px;
-    left: -90px;
-    color: black;
-    font-weight: 700;
-    font-size: 18px;
+position:absolute;
+top:15px;
+left: -90px;
+color: black;
+font-weight: 700;
+font-size: 18px;
 }
 
 .custom-select-wrapper {
-    position: relative;
-    user-select: none;
-    width: 170px;
-    margin-left:196px
+position: relative;
+user-select: none;
+width: 170px;
+margin-left:196px
 }
 .custom-select {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    
-  
+position: relative;
+display: flex;
+flex-direction: column;
+
+
 }
 .custom-select__trigger {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 22px;
-    font-size: 20px;
-    font-weight: 700;
-    color:white;
-    height: 60px;
-    line-height: 60px;
-    background:$primarycolor;
-    cursor: pointer;
+position: relative;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 22px;
+font-size: 20px;
+font-weight: 700;
+color:white;
+height: 60px;
+line-height: 60px;
+background:$primarycolor;
+cursor: pointer;
 
- 
-   
+
+
 }
 .custom-options {
-    position: absolute;
-    display: block;
-    top: 100%;
-    left: 0;
-    right: 0;
-     border-top: 0;
-    background:$primarycolor;
-    transition: all 0.5s;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    z-index: 2;
+position: absolute;
+display: block;
+top: 100%;
+left: 0;
+right: 0;
+    border-top: 0;
+background:$primarycolor;
+transition: all 0.5s;
+opacity: 0;
+visibility: hidden;
+pointer-events: none;
+z-index: 2;
 }
 .custom-select.open .custom-options {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: all;
+opacity: 1;
+visibility: visible;
+pointer-events: all;
 }
 .custom-option {
-    position: relative;
-    display: block;
-    padding: 0 22px 0 22px;
-    font-size: 22px;
-    font-weight: 300;
-    color:white;
-    line-height: 60px;
-    cursor: pointer;
-    transition: all 0.5s;
+position: relative;
+display: block;
+padding: 0 22px 0 22px;
+font-size: 22px;
+font-weight: 300;
+color:white;
+line-height: 60px;
+cursor: pointer;
+transition: all 0.5s;
 }
 .custom-option:hover {
-    cursor: pointer;
-    background-color:$secondarycolor;
+cursor: pointer;
+background-color:$secondarycolor;
 }
 .custom-option.selected {
-    color: #ffffff;
-    display: none;
+color: #ffffff;
+display: none;
 }
 
 .arrow {
-    position: relative;
-    left:18px;
-    height: 16px;
-    width: 16px;
+position: relative;
+left:18px;
+height: 16px;
+width: 16px;
 }
 .arrow::before, .arrow::after {
-    content: "";
-    position: absolute;
-    bottom: 0px;
-    width: 0.15rem;
-    height: 100%;
-    transition: all 0.5s;
+content: "";
+position: absolute;
+bottom: 0px;
+width: 0.15rem;
+height: 100%;
+transition: all 0.5s;
 }
 .arrow::before {
-    left: -5px;
-    transform: rotate(45deg);
-    background-color: white;
+left: -5px;
+transform: rotate(45deg);
+background-color: white;
 }
 .arrow::after {
-    left: 5px;
-    transform: rotate(-45deg);
-    background-color:white;
+left: 5px;
+transform: rotate(-45deg);
+background-color:white;
 }
 .open .arrow::before {
-    left: -5px;
-    transform: rotate(-45deg);
+left: -5px;
+transform: rotate(-45deg);
 }
 .open .arrow::after {
-    left: 5px;
-    transform: rotate(45deg);
+left: 5px;
+transform: rotate(45deg);
 }
 
 
@@ -130,7 +130,7 @@ button{
 
 
 .custom-select-wrapper {
-    display: none;
+display: none;
 }
 }   
 
