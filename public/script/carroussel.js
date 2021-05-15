@@ -11,10 +11,8 @@ static init(){
   // on applique une fonction pour chaque image clicker
     links.forEach(link=>link.addEventListener('click', e =>{
      e.preventDefault();
-     new Lightbox (e.currentTarget.getAttribute('href'), gallery)
-     console.log(e);
-
-    }))
+     new Lightbox (e.currentTarget.getAttribute('href'), gallery);
+     }))
 }
 
    /**@param {string} url Url de l'image */
@@ -123,9 +121,7 @@ prev(e){
       
  return dom
 
-
 }
-
 
 }
 

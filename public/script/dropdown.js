@@ -8,19 +8,7 @@ const wrapperDrop =document.querySelector('.custom-select-wrapper')
     this.querySelector('.custom-select').classList.toggle('open');
     })
 
-
-    // wrapperDrop.addEventListener('keydown', function(e) { 
-    //     if(e.key=='ArrowDown'){
-    //   this.querySelector('.custom-select').classList.add('open');
-    // }
-    // if(e.key=='ArrowUp'){
-    //     this.querySelector('.custom-select').classList.remove('open');
-    //   }
-    // })
-    
-
-
-    customSelectWrapper.addEventListener('click', function () {
+     customSelectWrapper.addEventListener('click', function () {
       customSelect.classList.toggle('open');
       
       const expanded = document.querySelector('#select').getAttribute('aria-expanded');

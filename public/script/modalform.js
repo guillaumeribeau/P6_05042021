@@ -31,8 +31,6 @@ function afficherMessage(inputdiv){
 }
 
 
-
-
 // ouvre le formulaire
 btnContactez.addEventListener('click', e=>{
 e.preventDefault();
@@ -42,7 +40,6 @@ forms.style.display='flex';
 inputLast.focus();
 
 })
-
 
 // ferme le formualaire
 btnClose.addEventListener('click', e=>{
@@ -60,9 +57,6 @@ document.addEventListener('keydown', e=>{
   forms.style.display='none';
   }
   })  
-
-
-
 
 // message d'erreur 
 
@@ -143,8 +137,6 @@ btnSubmit.addEventListener('keydown', (e)=> {
     }
 })   
 
-  
-
 // ecoute et envoie du formulaire si tout est ok
 
 function envoieFormulaire(e){
@@ -159,9 +151,6 @@ function envoieFormulaire(e){
   }
 
 }
-
-
-
 
 // fait disparaître le formulaire au bout de 3s
  function disparition(){setTimeout(() => {

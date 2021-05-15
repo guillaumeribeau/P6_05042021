@@ -28,8 +28,6 @@ export function createPhotographers(photographers) {
     }).join('');
 
       main.innerHTML= photographerCard;
-
-   
 };
 
 
