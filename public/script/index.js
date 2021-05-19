@@ -1,19 +1,18 @@
 
- const urlPara = new URLSearchParams(window.location.search);
- let tagsId = urlPara.get('id');
+const urlPara = new URLSearchParams(window.location.search)
+const tagsId = urlPara.get('id')
 
+// function qui permet de créer photographe page accueil
 
-// function qui permet de créer photographe page accueil 
+export function createPhotographers (photographers) {
+  const main = document.querySelector('.main')
+  const photographerCard = photographers.map(photographers => {
+    const tags = photographers.tags
+    const tagsArray = tags.map(tags => {
+      return `<span class="card__tags">#${tags}</span>`
+    }).join('')
 
-export function createPhotographers(photographers) {
-    const main = document.querySelector('.main');
-    let photographerCard = photographers.map(photographers=>{
-      let tags = photographers.tags;
-        let tagsArray = tags.map(tags => {
-            return `<span class="card__tags">#${tags}</span>`;
-        }).join('');
-        
-    return`<article class= card__photographers>
+    return `<article class= card__photographers>
       <a id= '${photographers.id}' class= card__link href="photographer.html?id=${photographers.id}" aria-label='${photographers.name}'> 
           <img class='card__image' src="img/portrait/${photographers.portrait}" alt="${photographers.name}">
           <h2 class='card__name'>${photographers.name}</h2>
@@ -25,33 +24,31 @@ export function createPhotographers(photographers) {
         <div class="tags__photographer">${tagsArray}</div>
         
     </article>`
-    }).join('');
+  }).join('')
 
-      main.innerHTML= photographerCard;
+  main.innerHTML = photographerCard
 };
 
-
 // function qui filtre les photographe par le tags
-export function filterTags(photographers){
-  const navLinks =document.querySelectorAll('.tags');
- 
-      for (let valeur of navLinks){ 
-        let tagsLink = valeur.innerText.slice(1).toLowerCase();
-        
-        valeur.addEventListener('click', function(e){
-        e.preventDefault();
-        main.innerHTML='';
-  
-          const filteredCard = photographers.map(photographers => {
-          let tags = photographers.tags;
-          let tagsArray = tags.map(tags => {
-                return `<span class="card__tags">#${tags}</span>`;
-            }).join('');
-          let ArrayOfTags = tags.map(element => element);
-          
-           if (ArrayOfTags.includes(tagsLink)) {
-       
-            return `
+export function filterTags (photographers) {
+  const navLinks = document.querySelectorAll('.tags')
+  const main = document.querySelector('.main')
+  for (const valeur of navLinks) {
+    const tagsLink = valeur.innerText.slice(1).toLowerCase()
+
+    valeur.addEventListener('click', function (e) {
+      e.preventDefault()
+      main.innerHTML = ''
+
+      const filteredCard = photographers.map(photographers => {
+        const tags = photographers.tags
+        const tagsArray = tags.map(tags => {
+          return `<span class="card__tags">#${tags}</span>`
+        }).join('')
+        const ArrayOfTags = tags.map(element => element)
+
+        if (ArrayOfTags.includes(tagsLink)) {
+          return `
                   <article class="card">
                       <a id="${photographers.id}" class="card__general-link" href="photographer.html?id=${photographers.id}">
                           <img class="card__image" src="./img/portrait/${photographers.portrait}" alt="${photographers.name}">
@@ -61,38 +58,31 @@ export function filterTags(photographers){
                       <p class="card__tagline">${photographers.tagline}</p>
                       <p class="card__price">${photographers.price}&euro;/jour</p>
                       <div class="card__tags-container">${tagsArray}</div>
-                  </article>`;
-          } else {
-            return '';
-          };
-     
-     }).join('');
-      main.innerHTML = filteredCard;
-     })
-         
-    };
+                  </article>`
+        } else {
+          return ''
+        };
+      }).join('')
+      main.innerHTML = filteredCard
+    })
   };
-  
+};
 
-//fonction de filtres par rapport au tags de la page photographes
-export function TrierPhotograph(photographers){
-  
-  if (tagsId==undefined){
-createPhotographers(photographers); 
-}
+// fonction de filtres par rapport au tags de la page photographes
+export function TrierPhotograph (photographers) {
+  const main = document.querySelector('.main')
+  if (tagsId === undefined) {
+    createPhotographers(photographers)
+  } else {
+    const filteredCard = photographers.map(photographers => {
+      const tags = photographers.tags
+      const tagsArray = tags.map(tags => {
+        return `<span class="card__tags">#${tags}</span>`
+      }).join('')
+      const ArrayOfTags = tags.map(element => element)
 
-else{
-const filteredCard = photographers.map(photographers => {
-    let tags = photographers.tags;
-    let tagsArray = tags.map(tags => {
-          return `<span class="card__tags">#${tags}</span>`;
-      }).join('');
-    let ArrayOfTags = tags.map(element => element);
-    
-    
-     if (ArrayOfTags.includes(tagsId)) {
- 
-      return `
+      if (ArrayOfTags.includes(tagsId)) {
+        return `
             <article class="card">
                 <a id="${photographers.id}" class="card__general-link" href="photographer.html?id=${photographers.id}">
                     <img class="card__image" src="./img/portrait/${photographers.portrait}" alt="${photographers.name}">
@@ -102,19 +92,16 @@ const filteredCard = photographers.map(photographers => {
                 <p class="card__tagline">${photographers.tagline}</p>
                 <p class="card__price">${photographers.price}&euro;/jour</p>
                 <div class="card__tags-container">${tagsArray}</div>
-            </article>`;
-    }
-      
-    }).join('');;
-main.innerHTML = filteredCard;
-}
-  
+            </article>`
+      }
+    }).join('')
+    main.innerHTML = filteredCard
+  }
 }
 
-   
-// passer au contenu 
-const contenu = document.querySelector('.contenu');
-document.addEventListener('scroll',e=>{
-e.preventDefault();
-contenu.style.display='inline-block';
+// passer au contenu
+const contenu = document.querySelector('.contenu')
+document.addEventListener('scroll', e => {
+  e.preventDefault()
+  contenu.style.display = 'inline-block'
 })
