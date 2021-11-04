@@ -5,8 +5,8 @@ FishEye est un site web qui permet aux photographes indépendants de présenter 
 Le projet FishEye est une projet d'application web entièrement développé en Javascript Vanilla.
 J'utilise Sass pour la gestion des styles.
 
-![alt text] (../public/img/exemple1)
-![alt text] (../public/img/exemple2)
+![alt text] (../public/img/exemple1.png)
+![alt text] (../public/img/exemple2.png)
 
 ## Tech Stack
 
